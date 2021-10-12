@@ -1,4 +1,3 @@
-testing
-testing some more
-again
-and again
+School Project Assignment. 
+Assignment objective: recreate webpage "TechStore" after mockups.
+

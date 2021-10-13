@@ -12,29 +12,30 @@ body, html {
     
 }
 
-.navbar {
+
+main {
+    min-height: 200vh;
+}
+
+.site-header {
+    background-color: black;
     height: 50px;
-}
-
-.container-fluid {
-    height: 100%;
-    
-
-}
-
-.tech-logo{
-    text-decoration: none;
-    color: white;
-    font-size: 100%;
-    margin-left: 5px;
-}
+    width: 100%;
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 28px;
+  }
 
 .navbar-brand {
+    margin: 15px;
     text-decoration: none;
     color: white;
-    font-size: 60px;
     font-weight: bold;
-   
+
 
 }
 
@@ -49,13 +50,26 @@ body, html {
 
 }
 
+.nav-items {
+    display: flex;
+    justify-items: baseline;
+    justify-content: baseline;
+    margin: 5px;
+    padding: 5px;
+
+}
+
 #cart {
     height: 30px;
     width: 30px;
     background-color: black;
+    margin: 4px;
 }
 
-.added-articles {
+#added-articles {
     color: white;
-    font-size: 20px;
+    font-size: 25px;
+    margin-right: 10px;
+    margin-top: 5px;
+    font-weight: 500;
 }

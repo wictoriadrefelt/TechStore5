@@ -1,61 +1,81 @@
-* {
-    box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
-}
 
-
-body, html {
-    
-    text-align: center;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
-    
-}
-
-.navbar {
-    height: 50px;
-}
-
-.container-fluid {
-    height: 100%;
-    
-
-}
-
-.tech-logo{
-    text-decoration: none;
-    color: white;
-    font-size: 100%;
-    margin-left: 5px;
-}
-
-.navbar-brand {
-    text-decoration: none;
-    color: white;
-    font-size: 60px;
-    font-weight: bold;
-   
-
-}
-
-.navbar-brand:hover{
-    color:white;
-}
-
-
-.cart-icon{
-    color: white;
-    
-
-}
-
-#cart {
-    height: 30px;
-    width: 30px;
+.header {
     background-color: black;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
 }
 
-.added-articles {
-    color: white;
-    font-size: 20px;
+.Title {
+   color: white;
+   flex:8;
+   margin-left: 5px;
+   font-family: 'Roboto', sans-serif;
 }
+
+.cartIcon {
+    flex: 1;
+    padding-inline-start: 2em;
+    padding-top: 3px;
+    margin-right: 10px;
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.mainContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-block-start: 3em;
+    margin-block-end: 0.3em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    justify-content: center;
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+}
+
+h3 {
+    display: flex;
+    font-size: 1em;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+
+.price {
+    font-weight: bold;
+    display: flex;
+    font-family: 'Roboto', sans-serif;
+}
+.kundvagn {
+    display: flex;
+    background: #4f9de6;
+    border: 10px #4f9de6 solid;
+    color: white;
+    border-radius: 10px;
+    width: 14em;
+}
+
+.cart2 {
+    flex: 1;
+}
+
+.läggiKV {
+    flex: 3;
+    font-family: 'Roboto', sans-serif;
+}
+

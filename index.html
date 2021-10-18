@@ -9,6 +9,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script defer src="main.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
     <title>Startview on Desktop</title>
 </head>
@@ -26,14 +27,16 @@
             </div>
 
             <div class="imageLGV30">
-            <img src="image/LGV30.png" alt="LGV30" height="350">
+            <img src="images/LGV30.png" alt="LGV30" height="350">
             </div><br>
 
             <div class="price">7495 kr</div><br>
-            <div class="kundvagn">
-               <span class="cart2"><i class="fas fa-cart-arrow-down"></i></span>
-               <span class="läggiKV">Lägg till i kundvagnen</span>
-            </div>
+            <button class="kundvagn" onclick="addProdToCartByIndex('item1', 4)">Lägg till i kundvagnen
+                <span class="cart2"><i class="fas fa-cart-arrow-down"></i></span>
+            </button>
+               
+            
+            
         </div>
     </div>
 </body>

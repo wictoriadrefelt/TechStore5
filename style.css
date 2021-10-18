@@ -6,6 +6,116 @@
 
 
 body, html {
-    background-color: blue;
     text-align: center;
+}
+
+
+.firstname {
+    margin-top: 40px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.articles {
+    display: flex;
+    flex-direction: center;
+    height: 60%;
+    justify-content: center;
+    
+
+}
+
+.front {
+    background-color: #f2f2f2;
+    margin: 20px;
+    border-radius: 8px;
+    outline-style: groove;
+    outline-color: blue;
+}
+
+
+
+.img1 {
+    width: 150px;
+    margin: 20px;
+
+}
+.img2 {
+    width: 230px;
+    margin: 20px;
+
+}
+.img3 {
+    width: 130px;
+    margin: 20px;
+
+}
+.img4 {
+    width: 150px;
+    margin: 20px;
+
+}
+
+.button {
+    background-color: #A25127;
+    width: 100px;
+    display: flex;
+    border-radius: 6px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    
+    
+}
+
+.smallcart {
+    background-color: cornflowerblue;
+    height: 40px;
+    width: 200px;
+   margin-bottom: 100px;
+   margin-top: 40px;
+   font-family: 'Roboto', sans-serif;
+   border-radius: 10px;
+  
+
+
+}
+
+.total {
+    margin-top: 20px;
+    font-family: 'Roboto', sans-serif;
+
+}
+
+
+.body {
+    font-family: 'Roboto', sans-serif;
+
+}
+
+
+
+
+
+
+/* phone */
+
+@media (max-width: 600px) {
+    
+.articles {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.button {
+    margin-bottom: 20px;
+
+}
+
+}
+
+/* tablets */
+
+@media (min-width: 768px) {
+    
 }

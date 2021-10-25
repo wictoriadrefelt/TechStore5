@@ -20,12 +20,29 @@ function initSite() {
 
 /** Uses the loaded products data to create a visible product list on the website */
 function addProductsToWebpage() {
-    // Check your console to see that the products are stored in the listOfProducts varible.
-    console.log(listOfProducts);
+    const main = document.getElementsByTagName("main")[0];
+    listOfProducts.forEach((product,i) => {
+        let productCard = document.createElement("div");
+        
+        // Representing the header of a productCard
+        let headerContainer = document.createElement("div");
+        headerContainer.classList.add("")
 
-    // Add your code here, remember to brake your code in to smaller function blocks
-    // to reduce complexity and increase readability. Each function should have
-    // an explainetory comment like the one for this function, see row 22.
-    
-    // TODO: Remove the console.log and these comments when you've read them.
+        let header = document.createElement("h2")
+        header.innerText = product.title
+
+        headerContainer.appendChild(header)
+
+        // Representing the image of a productCard
+
+        let imgContainer = document.createElement("div");
+        let priceContainer = document.createElement("div");
+        let descriptionContainer = document.createElement("div");
+        let btnContainer = document.createElement("div");
+        
+
+    })
+};
+
+productCard.append(headerContainer, imgContainer, descriptionContainer, priceContainer, btnContainer)
 }

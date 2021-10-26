@@ -45,4 +45,3 @@ function addProductsToWebpage() {
 };
 
 productCard.append(headerContainer, imgContainer, descriptionContainer, priceContainer, btnContainer)
-}

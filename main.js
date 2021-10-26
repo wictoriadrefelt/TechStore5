@@ -15,6 +15,7 @@ function loadProducts() {
 
 function initSite() {
     loadProducts();
+    console.log(listOfProducts)
     // This would also be a good place to initialize other parts of the UI
 }
 
@@ -43,5 +44,30 @@ function addProductsToWebpage() {
 
     })
 };
-
+/*
 productCard.append(headerContainer, imgContainer, descriptionContainer, priceContainer, btnContainer)
+*/
+
+// add product(s) to cart 
+/* TODO FIX BUTTON */
+let addingToCart = document.getElementsByClassName('addingToCart');
+let products = [];
+console.log(addingToCart)
+for(let i = 0; i < addingToCart.length; i++){
+    addingToCart[i].addEventListener('click', function(e){
+        console.log(e.target.parentElement.textContent)
+        
+        // Add product to localStorage, will target where current tags are rendered. 
+        let product = {
+            id: i+1,
+            title: e.target,
+            price: e.target,
+            image: e.target,
+            description: e.target,
+        };
+        localStorage.setItem('products', JSON.stringify(product));
+    });
+
+    
+
+}

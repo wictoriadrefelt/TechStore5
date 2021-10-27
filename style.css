@@ -29,12 +29,25 @@
     justify-content: flex-end;
 }
 
-.mainContent {
+main {
+    display: flex;
+    flex-direction: column;
+}
+.carddiv {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+.imgdiv {
+    margin-top: 50px;
+}
 
+.btndiv {
+    margin-top: 30px;
+}
+
+
+/* 
 h2 {
     font-size: 1.5em;
     margin-block-start: 3em;
@@ -170,29 +183,11 @@ body, html {
 }
 
 
-
+ */
 
 
 /* phone */
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
     
-    .articles {
-        display: flex;
-        flex-direction: column;
-    
-    }
-    
-    .button {
-        margin-bottom: 20px;
-    
-    }
-    
-    }
-    
-    /* tablets */
-    
-    @media (min-width: 768px) {
-        
-    }
-    
+

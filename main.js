@@ -18,6 +18,7 @@ function loadProducts() {
 }
 
 
+
 /** Uses the loaded products data to create a visible product list on the website */
 function addProductsToWebpage() {
     const main = document.getElementsByTagName("main")[0];
@@ -75,20 +76,32 @@ function addProductsToWebpage() {
         productCard.append( imgContainer, headerContainer, descriptionContainer, priceContainer, btnContainer); 
     })
 
-}; 
+};
+/*
+productCard.append(headerContainer, imgContainer, descriptionContainer, priceContainer, btnContainer)
+*/
 
+// add product(s) to cart 
+/* TODO FIX BUTTON */
+let addingToCart = document.getElementsByClassName('addingToCart');
+let products = [];
+console.log(addingToCart)
+for(let i = 0; i < addingToCart.length; i++){
+    addingToCart[i].addEventListener('click', function(e){
+        console.log(e.target.parentElement.textContent)
+        
+        // Add product to localStorage, will target where current tags are rendered. 
+        let product = {
+            id: i+1,
+            title: e.target,
+            price: e.target,
+            image: e.target,
+            description: e.target,
+        };
+        localStorage.setItem('products', JSON.stringify(product));
+    });
 
- 
-/*         productCard= 
-        `<div>
-                <div>${product.image}</div>
-                <div><h2>${product.title}</h2></div>
-                <div><p>${product.description}</p></div>
-                <div><h3>Price:${product.price}kr</h3></div>
-                <div><button class="add-item">Add to Cart</buttion></div>
-            
-        </div>`
     
-        main.innerHTML += productCard  */
 
+}
 

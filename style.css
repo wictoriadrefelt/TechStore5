@@ -4,12 +4,14 @@
     height: 80px;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .Title {
    color: white;
    flex:8;
    margin-left: 5px;
+   display: flex;
    font-family: 'Roboto', sans-serif;
 }
 
@@ -184,27 +186,8 @@ body, html {
  */
 
 
-
 /* phone */
 
 /* @media (max-width: 600px) {
     
-.articles {
-    display: flex;
-    flex-direction: column;
 
-}
-
-.button {
-    margin-bottom: 20px;
-
-}
-
-}
-
-/* tablets */
-
-/* @media (min-width: 768px) {
-    
-}
- */ 

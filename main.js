@@ -58,14 +58,33 @@ for(let i = 0; i < addingToCart.length; i++){
         console.log(e.target.parentElement.textContent)
         
         // Add product to localStorage, will target where current tags are rendered. 
+        
         let product = {
             id: i+1,
-            title: e.target,
+            title: e.target.parentElement.textContent,
             price: e.target,
             image: e.target,
             description: e.target,
+            count: 0,
+            
         };
-        localStorage.setItem('products', JSON.stringify(product));
+        if(JSON.parse(localStorage.getItem('products')) === null){
+            products.push(product);
+            localStorage.setItem('products', JSON.stringify(product));
+            
+        }else{
+            const localItems = localStorage.getItem('products');
+            console.log(' hej');
+            console.log(products)
+            products.map(data=>{
+                console.log(data, 'tjena')
+                if(products.id == data.id){
+                    products.count = data.count +1;
+                }else{
+                    products.push(data);
+                }
+            })
+        }
     });
 
     

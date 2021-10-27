@@ -1,4 +1,9 @@
-var listOfProducts;
+var listOfProducts = [];
+
+function initSite() {
+    loadProducts();
+    // This would also be a good place to initialize other parts of the UI
+}
 
 /** Get products from the json file and store it in a gobal variable */
 function loadProducts() {
@@ -13,36 +18,77 @@ function loadProducts() {
 }
 
 
-function initSite() {
-    loadProducts();
-    // This would also be a good place to initialize other parts of the UI
-}
-
 /** Uses the loaded products data to create a visible product list on the website */
 function addProductsToWebpage() {
     const main = document.getElementsByTagName("main")[0];
-    listOfProducts.forEach((product,i) => {
-        let productCard = document.createElement("div");
+    listOfProducts.forEach((product) => {
         
-        // Representing the header of a productCard
-        let headerContainer = document.createElement("div");
-        headerContainer.classList.add("")
-
-        let header = document.createElement("h2")
-        header.innerText = product.title
-
-        headerContainer.appendChild(header)
+        let productCard = document.createElement("div");
+        productCard.classList.add("carddiv")
+        main.append(productCard)
 
         // Representing the image of a productCard
 
         let imgContainer = document.createElement("div");
-        let priceContainer = document.createElement("div");
-        let descriptionContainer = document.createElement("div");
-        let btnContainer = document.createElement("div");
+        imgContainer.classList.add("imgdiv")
+        let img = document.createElement("img")
+        img.src = "images/image.png"
+        img.innerText=product.image
+        imgContainer.appendChild(img)
+        main.append(imgContainer)
+
+
+        // Representing the title of a productCard
+
+        let headerContainer = document.createElement("div");
+        headerContainer.classList.add("titlediv")
+        let header = document.createElement("h2");
+        header.innerText = product.title
+        headerContainer.appendChild(header)   
+        main.append(headerContainer)
         
+        // Representing the description of a productCard
 
+        let descriptionContainer = document.createElement("div");
+        descriptionContainer.classList.add("desdiv")
+        let paragrahOne = document.createElement("p");
+        paragrahOne.innerText = product.description
+        descriptionContainer.appendChild(paragrahOne)   
+        main.append(descriptionContainer)
+
+       // Representing the price of a productCard
+        let priceContainer = document.createElement("div");
+        priceContainer.classList.add("pricediv")
+        let  paragrahTwo= document.createElement("p2");
+        paragrahTwo.innerText = product.price+"kr"
+        priceContainer.appendChild(paragrahTwo)
+        main.append(priceContainer)
+
+        // Representing the btnContainer of a productCard 
+        let btnContainer = document.createElement("div");
+        btnContainer.classList.add("btndiv")
+        let paragrahThree=document.createElement("button");
+        paragrahThree.innerText = `Add to Cart`
+        btnContainer.appendChild(paragrahThree)
+        main.append(btnContainer)
+
+        productCard.append( imgContainer, headerContainer, descriptionContainer, priceContainer, btnContainer); 
     })
-};
 
-productCard.append(headerContainer, imgContainer, descriptionContainer, priceContainer, btnContainer)
-}
+}; 
+
+
+ 
+/*         productCard= 
+        `<div>
+                <div>${product.image}</div>
+                <div><h2>${product.title}</h2></div>
+                <div><p>${product.description}</p></div>
+                <div><h3>Price:${product.price}kr</h3></div>
+                <div><button class="add-item">Add to Cart</buttion></div>
+            
+        </div>`
+    
+        main.innerHTML += productCard  */
+
+

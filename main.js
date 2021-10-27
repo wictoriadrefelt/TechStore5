@@ -33,8 +33,7 @@ function addProductsToWebpage() {
         let imgContainer = document.createElement("div");
         imgContainer.classList.add("imgdiv")
         let img = document.createElement("img")
-        img.src = "images/image.png"
-        img.innerText=product.image
+        img.src = "./images/" + product.image
         imgContainer.appendChild(img)
         main.append(imgContainer)
 

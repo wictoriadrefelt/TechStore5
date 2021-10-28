@@ -1,3 +1,4 @@
+
 var listOfProducts = [];
 
 function initSite() {
@@ -67,59 +68,127 @@ function addProductsToWebpage() {
         // Representing the btnContainer of a productCard 
         let btnContainer = document.createElement("div");
         btnContainer.classList.add("btndiv")
-        let paragrahThree=document.createElement("button");
-        paragrahThree.innerText = `Add to Cart`
-        btnContainer.appendChild(paragrahThree)
+        let paragraphThree=document.createElement("button");
+        paragraphThree.innerText = `Add to Cart`
+        /*
+        paragraphThree.className = 'addItemToCartbtn';
+        paragraphThree.id = 'purchase'
+        */
+        // Allows the button to be clicked and ads product
+        paragraphThree.addEventListener('click', () => {addToCart(product)
+        console.log(product, 'this is it')}) 
+        
+  
+        
+        
+        btnContainer.appendChild(paragraphThree)
         main.append(btnContainer)
 
         productCard.append( imgContainer, headerContainer, descriptionContainer, priceContainer, btnContainer); 
-    })
+  })
 
 };
+
+
+
+function addToCart(product){
+    let cart = localStorage.getItem('cart')
+    console.log(cart, '******')
+
+    if(cart){
+        cart = JSON.parse(cart)
+        console.log('cart', cart)
+
+    }else{
+        cart = []; 
+    }
+    cart.push(product)
+    console.log(cart, 'hej')
+    localStorage.setItem('cart', JSON.stringify(cart))
+}  
+
+
+
+
+
+
+
+
+
 /*
-productCard.append(headerContainer, imgContainer, descriptionContainer, priceContainer, btnContainer)
-*/
 
-// add product(s) to cart 
-/* TODO FIX BUTTON */
-let addingToCart = document.getElementsByClassName('addingToCart');
-let products = [];
-console.log(addingToCart)
-for(let i = 0; i < addingToCart.length; i++){
-    addingToCart[i].addEventListener('click', function(e){
-        console.log(e.target.parentElement.textContent)
-        
-        // Add product to localStorage, will target where current tags are rendered. 
-        
-        let product = {
-            id: i+1,
-            title: e.target.parentElement.textContent,
-            price: e.target,
-            image: e.target,
-            description: e.target,
-            count: 0,
-            
-        };
-        if(JSON.parse(localStorage.getItem('products')) === null){
-            products.push(product);
-            localStorage.setItem('products', JSON.stringify(product));
-            
-        }else{
-            const localItems = localStorage.getItem('products');
-            console.log(' hej');
-            console.log(products)
-            products.map(data=>{
-                console.log(data, 'tjena')
-                if(products.id == data.id){
-                    products.count = data.count +1;
-                }else{
-                    products.push(data);
-                }
-            })
-        }
-    });
+function loopOver(){
+let products = document.querySelector('.addItemToCartbtn')
+for(var i = 0;i < products.length;i++){
+    products[i].addEventListener('click', () => {addToCart(product)})
+    console.log(products[i], + 'hej')
 
-    
+}}
 
+
+
+
+function addToCart(prod){
+    let products = getProducts();
+    products.push(prod);
+    //console.log(prod)
+    localStorage.setItem('products',JSON.stringify(products));
 }
 
+function getProducts(){
+    let products;
+    if(localStorage.getItem('products') === null){
+        products = [];
+    }else{
+        products = JSON.parse(localStorage.getItem('products'));
+    }
+    return products;
+}
+
+/*
+function addToCart(item){
+
+if(JSON.parse(localStorage.getItem('products')) === null){
+    products = [];
+    products.push(item);
+    localStorage.setItem("products",JSON.stringify(items));
+    
+}else{
+    const localItems = JSON.parse(localStorage.getItem("products"));
+    localItems.map(data=>{
+        if(item.id == data.id){
+            item.no = data.no + 1;
+        }else{
+            products.push(data);
+        }
+    });
+    products = [];
+    products.push(item);
+    localStorage.setItem('products',JSON.stringify(products));
+    
+}}
+
+
+*/
+
+
+
+
+
+/*
+function addToCart(prod){
+    
+            let cart = localStorage.getItem('products')
+            console.log(cart, 'inspect')
+            if(cart){
+                cart = JSON.parse(cart);
+                console.log(cart)
+            }else{
+                cart = [];
+                cart.push(prod)
+                localStorage.setItem('products', JSON.stringify(prod))
+                
+            }
+           
+        }
+*/

@@ -77,7 +77,7 @@ function addProductsToWebpage() {
         */
         // Allows the button to be clicked and ads product
         paragraphThree.addEventListener('click', () => {addToCart(product)
-        console.log(product, 'this is it')}) 
+        }) 
         
   
         
@@ -91,20 +91,17 @@ function addProductsToWebpage() {
 };
 
 
-
+// adds product to cart
 function addToCart(product){
     let cart = localStorage.getItem('cart')
-    console.log(cart, '******')
 
     if(cart){
         cart = JSON.parse(cart)
-        console.log('cart', cart)
 
     }else{
         cart = []; 
     }
     cart.push(product)
-    console.log(cart, 'hej')
     localStorage.setItem('cart', JSON.stringify(cart))
 }  
 

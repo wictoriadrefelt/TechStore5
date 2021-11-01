@@ -148,6 +148,7 @@ function addToCart(product){
         let index = cart.forEach((cartItem) => {
             if(cartItem.product.title == product.title){
                 console.log('tjenis')
+                console.log('hej mamma')
             }
             
 

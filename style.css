@@ -3,8 +3,6 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-
-
 .header {
     background-color: black;
     height: 80px;
@@ -16,20 +14,17 @@ body {
     
 }
 
-
-
 .techStoreDiv {
    color: white;
    flex:1 1 200px;
    border: 1px solid black;
    display: flex;
-
+   font-size: 2.5rem;
    text-decoration: none;
 }
 
 .numberOfProductsCount {
     align-items:flex-end;
-    
     width: 40px;
     font-size: 40px;
     color: white;
@@ -37,8 +32,6 @@ body {
     margin-left: 15px;
 
 }
-
-
 
 .cartIcon {
     flex: 1;
@@ -75,8 +68,9 @@ body {
 
 main {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
 }
+
 .carddiv {
     flex:auto;
     text-align: center;

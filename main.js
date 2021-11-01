@@ -1,8 +1,11 @@
 
 var listOfProducts = [];
+var cart = []; 
+var cartItems;
 
 function initSite() {
     loadProducts();
+    
     // This would also be a good place to initialize other parts of the UI
 }
 
@@ -15,16 +18,53 @@ function loadProducts() {
     .then(function(products) {
         listOfProducts = products;
         addProductsToWebpage();
+        createHeader();
     });
 }
 
+function createHeader(){
+const head = document.getElementsByTagName('header')[0];
+let headerDiv = document.createElement('div')
+    headerDiv.classList.add('header')
+    head.appendChild(headerDiv)
+
+let titleDiv = document.createElement('a')
+    titleDiv.classList.add('techStoreDiv')
+    let titleLink = document.createTextNode('TechStore')
+    titleDiv.appendChild(titleLink)
+    titleDiv.title = 'TechStore';
+    titleDiv.href = 'index.html';
+    headerDiv.appendChild(titleDiv)
+    
+    createProduct();
+
+    
+function createProduct() {  
+let numberOfProducts = document.createElement('div')
+    numberOfProducts.classList.add('numberOfProductsCount')
+    numberOfProducts.innerText = '2'
+    headerDiv.appendChild(numberOfProducts)
+
+let cartIcon = document.createElement('div')
+    cartIcon.classList.add('cartIcon')
+    let cartImage = document.createElement('img')
+    cartImage.classList.add('cartImage')
+    cartImage.src = './images/cart.png'
+    cartIcon.appendChild(cartImage)
+    headerDiv.appendChild(cartImage)
+}
+}
 
 
 /** Uses the loaded products data to create a visible product list on the website */
 function addProductsToWebpage() {
     const main = document.getElementsByTagName("main")[0];
+    
     listOfProducts.forEach((product) => {
         
+        
+
+
         let productCard = document.createElement("div");
         productCard.classList.add("carddiv")
         main.append(productCard)
@@ -89,11 +129,94 @@ function addProductsToWebpage() {
 
 };
 
-
-
 function addToCart(product){
     let cart = localStorage.getItem('cart')
-    console.log(cart, '******')
+    
+
+    if(cart){
+        cart = JSON.parse(cart)
+        
+
+    }else{
+        cart = []; 
+    }
+    cart.push({
+        product: product, 
+        quantity: 1})
+        //console.log(cart, 'hej')
+        localStorage.setItem('cart', JSON.stringify(cart))
+        let index = cart.forEach((cartItem) => {
+            if(cartItem.product.title == product.title){
+                console.log('tjenis')
+                console.log('hej mamma')
+            }
+            
+
+        })
+    }
+    function findIndex(){
+    let index = cart.findIndex((cartItem) =>{
+        if(cartItem.product.name == product.name ){
+            console.log('hej')
+            return True
+        }
+        // return cartItem.product.name == product.name
+    } )
+}
+    
+
+
+
+/*
+var addItem = function (title) {
+    var oldItems = JSON.parse(localStorage.getItem('cart')) || [];
+    var match = oldItems.find(function (item) {
+        return item['title'] === title;
+    });
+    if (match) {
+        match[product] += product,
+        match[quantity] +=quantity++
+    } else {
+        var newItem = {
+            'title': title,
+            'quantity': quantity,
+        };
+        oldItems.push(newItem);
+    }
+    localStorage.setItem('cart', JSON.stringify(oldItems));
+};
+/*
+function addToCart(product){
+    let cart = [];
+let index = cart.findIndex((cartItem) =>{
+    if(cartItem.product.name == product.name ){
+        return True
+    }
+    // return cartItem.product.name == product.name
+} )
+
+
+if(index < 0){
+    cart.push({
+        product: product,
+        quantity: 1, })
+    }else{
+    cart[index].quantity++
+    }
+
+
+console.log(cart)
+cart.push(product)
+console.log(cart)
+
+localStorage.setItem('cart', JSON.stringify(cart))   
+}
+
+
+/*
+function addToCart(product){
+    let cart = localStorage.getItem('cart')
+    
 
     if(cart){
         cart = JSON.parse(cart)
@@ -102,15 +225,20 @@ function addToCart(product){
     }else{
         cart = []; 
     }
-    cart.push(product)
+    cart.push({
+        product: product, 
+        quantity: 1
+    }
+        )
     console.log(cart, 'hej')
     localStorage.setItem('cart', JSON.stringify(cart))
 }  
 
 
-
-
-
+cart.forEach((cartItem) => {
+    console.log(cartItem)
+});       
+    
 
 
 

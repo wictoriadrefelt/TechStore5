@@ -1,26 +1,52 @@
+body {
+    max-width: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+
 
 .header {
     background-color: black;
     height: 80px;
     display: flex;
     flex-direction: row;
+    align-content: space-between;
     justify-content: space-between;
+    /*justify-content: space-between; */
+    
 }
 
-.Title {
+
+
+.techStoreDiv {
    color: white;
-   flex:8;
-   margin-left: 5px;
+   flex:1 1 200px;
+   border: 1px solid black;
    display: flex;
-   font-family: 'Roboto', sans-serif;
+
    text-decoration: none;
 }
 
+.numberOfProductsCount {
+    align-items:flex-end;
+    
+    width: 40px;
+    font-size: 40px;
+    color: white;
+    margin-top: 15px;
+    margin-left: 15px;
+
+}
+
+
+
 .cartIcon {
     flex: 1;
+    width: 40px;
+    margin: 10px;
     padding-inline-start: 2em;
     padding-top: 3px;
-    margin-right: 10px;
+    margin-right: 20px;
     display: flex;
     position: relative;
     flex-direction: row;
@@ -37,6 +63,14 @@
 #cart-btn :hover{
     background: gray;
     color: honeydew;
+}
+
+.cartImage {
+    height: 40px;
+    width: 40px;
+    margin-top: 20px;
+    margin-right: 20px;
+
 }
 
 main {

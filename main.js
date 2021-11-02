@@ -1,10 +1,13 @@
 
 var listOfProducts = [];
 var cart = []; 
-var cartItems;
+
 
 function initSite() {
     loadProducts();
+    displayCartAmount();
+    
+
     
     // This would also be a good place to initialize other parts of the UI
 }
@@ -42,8 +45,10 @@ let titleDiv = document.createElement('a')
 function createProduct() {  
 let numberOfProducts = document.createElement('div')
     numberOfProducts.classList.add('numberOfProductsCount')
-    numberOfProducts.innerText = '2'
+    
+    numberOfProducts.innerText = '0'
     headerDiv.appendChild(numberOfProducts)
+
 
 let cartIcon = document.createElement('div')
     cartIcon.classList.add('cartIcon')
@@ -52,6 +57,13 @@ let cartIcon = document.createElement('div')
     cartImage.src = './images/cart.png'
     cartIcon.appendChild(cartImage)
     headerDiv.appendChild(cartImage)
+    if(cartImage){
+        {
+            cartImage.onclick = function(e) {
+              document.location = "shoppingCart.html";
+            }
+          }
+    }
 }
 }
 
@@ -129,129 +141,76 @@ function addProductsToWebpage() {
 
 };
 
-function addToCart(product){
-    let cart = localStorage.getItem('cart')
-    
 
-    if(cart){
+// Add product to cart. 
+// Located index of item (if exists) and 
+function addToCart(product) {     
+    let cart = localStorage.getItem("cart")
+    if(cart) {
         cart = JSON.parse(cart)
-        
-
-    }else{
-        cart = []; 
-    }
-    cart.push({
-        product: product, 
-        quantity: 1})
-        //console.log(cart, 'hej')
-        localStorage.setItem('cart', JSON.stringify(cart))
-        let index = cart.forEach((cartItem) => {
-            if(cartItem.product.title == product.title){
-                console.log('tjenis')
-                console.log('hej mamma')
-            }
-            
-
-        })
-    }
-    function findIndex(){
-    let index = cart.findIndex((cartItem) =>{
-        if(cartItem.product.name == product.name ){
-            console.log('hej')
-            return True
-        }
-        // return cartItem.product.name == product.name
-    } )
-}
-    
-
-
-
-/*
-var addItem = function (title) {
-    var oldItems = JSON.parse(localStorage.getItem('cart')) || [];
-    var match = oldItems.find(function (item) {
-        return item['title'] === title;
-    });
-    if (match) {
-        match[product] += product,
-        match[quantity] +=quantity++
     } else {
-        var newItem = {
-            'title': title,
-            'quantity': quantity,
-        };
-        oldItems.push(newItem);
-    }
-    localStorage.setItem('cart', JSON.stringify(oldItems));
-};
-/*
-function addToCart(product){
-    let cart = [];
-let index = cart.findIndex((cartItem) =>{
-    if(cartItem.product.name == product.name ){
-        return True
-    }
-    // return cartItem.product.name == product.name
-} )
-
-
-if(index < 0){
-    cart.push({
-        product: product,
-        quantity: 1, })
-    }else{
-    cart[index].quantity++
+        cart = []
     }
 
+    let index = cart.findIndex((cartItem) => {
+    
+        //if(cartItem.product.title == product.title) {
+            return cartItem.product.title == product.title;
+        
+        
+    })
 
-console.log(cart)
-cart.push(product)
-console.log(cart)
+        if(index < 0) {
+            cart.push({
+                product: product, 
+                quantity: 1
+     })
+        } else {
+            cart[index].quantity++
+        }
 
-localStorage.setItem('cart', JSON.stringify(cart))   
+        localStorage.setItem("cart", JSON.stringify
+        (cart));
+
+        displayCartAmount();
+    }
+
+
+
+function displayCartAmount() {
+let displayProducts = document.getElementById("number") //Detta är H1 från HTML () = document.querySelector(".h1") // Får ut h1:a
+
+let cart = localStorage.getItem("cart")
+
+if(cart) {
+    cart = JSON.parse(cart)
+} else { 
+    cart = []
 }
 
 
-/*
-function addToCart(product){
-    let cart = localStorage.getItem('cart')
-    
-
-    if(cart){
-        cart = JSON.parse(cart)
-        console.log('cart', cart)
-
-    }else{
-        cart = []; 
-    }
-    cart.push({
-        product: product, 
-        quantity: 1
-    }
-        )
-    console.log(cart, 'hej')
-    localStorage.setItem('cart', JSON.stringify(cart))
-}  
-
-
-cart.forEach((cartItem) => {
-    console.log(cartItem)
-});       
-    
-
-
-
+let total = cart.reduce((nr, product) => nr + product.quantity, 0);
+    //TODO ---- GET THIS TO WORK. ONLY DISPLAYS IN CONSOLE
+    // CANT GET IT TO CHANGE JS RENDERED ELEMENT, ONLY HTML DIV
+    displayProducts.innerText = total
+    console.log(displayProducts)
+    console.log(total)
 
 /*
+let total2 = cart(getAddition);
+console.log(total2)
+*/
 
-function loopOver(){
-let products = document.querySelector('.addItemToCartbtn')
-for(var i = 0;i < products.length;i++){
-    products[i].addEventListener('click', () => {addToCart(product)})
-    console.log(products[i], + 'hej')
 
-}}
+
+}
+window.addEventListener("load", displayCartAmount())
+
+
+function getAddition(total, number) {
+    return total + number;
+
+}
 
 
 

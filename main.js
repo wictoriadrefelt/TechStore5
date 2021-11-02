@@ -5,7 +5,7 @@ var cart = [];
 
 function initSite() {
     loadProducts();
-    displayCartAmount();
+    //displayCartAmount();
     
 
     
@@ -154,8 +154,10 @@ function addToCart(product) {
 
     let index = cart.findIndex((cartItem) => {
     
-        //if(cartItem.product.title == product.title) {
-            return cartItem.product.title == product.title;
+        if(cartItem.product.title == product.title){
+            return true
+        }
+            
         
         
     })
@@ -172,14 +174,13 @@ function addToCart(product) {
         localStorage.setItem("cart", JSON.stringify
         (cart));
 
-        displayCartAmount();
+        //displayCartAmount();
     }
 
 
 
 function displayCartAmount() {
-let displayProducts = document.getElementById("number") //Detta är H1 från HTML () = document.querySelector(".h1") // Får ut h1:a
-
+let displayProducts = document.getElementById("number")
 let cart = localStorage.getItem("cart")
 
 if(cart) {
@@ -214,23 +215,6 @@ function getAddition(total, number) {
 
 
 
-
-function addToCart(prod){
-    let products = getProducts();
-    products.push(prod);
-    //console.log(prod)
-    localStorage.setItem('products',JSON.stringify(products));
-}
-
-function getProducts(){
-    let products;
-    if(localStorage.getItem('products') === null){
-        products = [];
-    }else{
-        products = JSON.parse(localStorage.getItem('products'));
-    }
-    return products;
-}
 
 /*
 function addToCart(item){

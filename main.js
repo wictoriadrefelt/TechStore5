@@ -69,16 +69,6 @@ function addProductsToWebpage() {
         productCard.classList.add("carddiv")
         main.append(productCard)
 
-        // Representing the image of a productCard
-
-        let imgContainer = document.createElement("div");
-        imgContainer.classList.add("imgdiv")
-        let img = document.createElement("img")
-        img.src = "./images/" + product.image
-        imgContainer.appendChild(img)
-        main.append(imgContainer)
-
-
         // Representing the title of a productCard
 
         let headerContainer = document.createElement("div");
@@ -97,19 +87,35 @@ function addProductsToWebpage() {
         descriptionContainer.appendChild(paragrahOne)   
         main.append(descriptionContainer)
 
+        // Representing the image of a productCard
+
+        let imgContainer = document.createElement("div");
+        imgContainer.classList.add("imgdiv")
+        let img = document.createElement("img")
+        img.src = "./images/" + product.image
+        imgContainer.appendChild(img)
+        main.append(imgContainer)
+
        // Representing the price of a productCard
         let priceContainer = document.createElement("div");
         priceContainer.classList.add("pricediv")
         let  paragrahTwo= document.createElement("p2");
-        paragrahTwo.innerText = product.price+"kr"
+        paragrahTwo.innerText = product.price+" kr"
         priceContainer.appendChild(paragrahTwo)
         main.append(priceContainer)
 
         // Representing the btnContainer of a productCard 
         let btnContainer = document.createElement("div");
-        btnContainer.classList.add("btndiv")
         let paragraphThree=document.createElement("button");
-        paragraphThree.innerText = `Add to Cart`
+        paragraphThree.classList.add("btndiv")
+        let cartPic = document.createElement('img')
+        cartPic.classList.add('cartImageInMain')
+        cartPic.src = './images/cart-arrow.png' 
+        let addToCartText = document.createElement("text")
+        addToCartText.classList.add('text')
+        addToCartText.innerText =`Add to cart`
+        paragraphThree.append(cartPic, addToCartText)
+        /* paragraphThree.innerText = cartImage  */
         /*
         paragraphThree.className = 'addItemToCartbtn';
         paragraphThree.id = 'purchase'
@@ -118,13 +124,10 @@ function addProductsToWebpage() {
         paragraphThree.addEventListener('click', () => {addToCart(product)
         console.log(product, 'this is it')}) 
         
-  
-        
-        
         btnContainer.appendChild(paragraphThree)
         main.append(btnContainer)
 
-        productCard.append( imgContainer, headerContainer, descriptionContainer, priceContainer, btnContainer); 
+        productCard.append(headerContainer, descriptionContainer, imgContainer,  priceContainer, btnContainer); 
   })
 
 };

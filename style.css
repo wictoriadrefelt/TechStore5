@@ -5,22 +5,37 @@ body {
 
 .header {
     background-color: black;
-    height: 80px;
+    height: 60px;
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-content: space-between;
     justify-content: space-between;
     /*justify-content: space-between; */
+    position: fixed;
+    margin: 0%;
+    right: 0px;
+    top: 0px;
+    left:0px;
+    
     
 }
 
 .techStoreDiv {
+    margin-top: 5px;
+    margin-left: 10px;
    color: white;
    flex:1 1 200px;
    border: 1px solid black;
    display: flex;
    font-size: 2.5rem;
    text-decoration: none;
+   
+}
+
+#number {
+    color: greenyellow;
+    font-size: 200px;
 }
 
 .numberOfProductsCount {
@@ -30,6 +45,8 @@ body {
     color: white;
     margin-top: 15px;
     margin-left: 15px;
+    border: 1 px solid black; 
+    
 
 }
 

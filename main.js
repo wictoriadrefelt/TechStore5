@@ -5,7 +5,7 @@ var cart = [];
 
 function initSite() {
     loadProducts();
-    //displayCartAmount();
+   
     
 
     
@@ -45,8 +45,8 @@ let titleDiv = document.createElement('a')
 function createProduct() {  
 let numberOfProducts = document.createElement('div')
     numberOfProducts.classList.add('numberOfProductsCount')
-    
-    numberOfProducts.innerText = '0'
+    numberOfProducts.id = 'numberOfProductsCount'
+    numberOfProducts.innerText = '0';
     headerDiv.appendChild(numberOfProducts)
 
 
@@ -54,7 +54,7 @@ let cartIcon = document.createElement('div')
     cartIcon.classList.add('cartIcon')
     let cartImage = document.createElement('img')
     cartImage.classList.add('cartImage')
-    cartImage.src = './images/cart.png'
+    cartImage.innerHTML = '<i class="fas fa-shopping-cart"></i>'
     cartIcon.appendChild(cartImage)
     headerDiv.appendChild(cartImage)
     if(cartImage){
@@ -154,15 +154,13 @@ function addToCart(product) {
     } else {
         cart = []
     }
+    
+    displayCartAmount() 
 
     let index = cart.findIndex((cartItem) => {
     
-        if(cartItem.product.title == product.title){
-            return true
-        }
-            
-        
-        
+        return cartItem.product.title == product.title
+              
     })
 
         if(index < 0) {
@@ -176,29 +174,29 @@ function addToCart(product) {
 
         localStorage.setItem("cart", JSON.stringify
         (cart));
-
-        //displayCartAmount();
+    
     }
 
 
 
 function displayCartAmount() {
-let displayProducts = document.getElementById("number")
-let cart = localStorage.getItem("cart")
 
-if(cart) {
+//innerText = ""
+numberOfProductsCount = document.getElementById('numberOfProductsCount')
+
+let cart = localStorage.getItem("cart")
+if(cart){
     cart = JSON.parse(cart)
-} else { 
-    cart = []
+
+let total = cart.reduce((nr, product) => nr + product.quantity, 0);
+    
+    //TODO ---- GET THIS TO WORK. ONLY DISPLAYS IN CONSOLE
+    // CANT GET IT TO CHANGE JS RENDERED ELEMENT, ONLY HTML DIV
+    numberOfProductsCount.innerText = total
+    return total
 }
 
 
-let total = cart.reduce((nr, product) => nr + product.quantity, 0);
-    //TODO ---- GET THIS TO WORK. ONLY DISPLAYS IN CONSOLE
-    // CANT GET IT TO CHANGE JS RENDERED ELEMENT, ONLY HTML DIV
-    displayProducts.innerText = total
-    console.log(displayProducts)
-    console.log(total)
 
 /*
 let total2 = cart(getAddition);
@@ -208,7 +206,7 @@ console.log(total2)
 
 
 }
-window.addEventListener("load", displayCartAmount())
+//window.addEventListener("load", displayCartAmount())
 
 
 function getAddition(total, number) {

@@ -46,7 +46,8 @@ function createProduct() {
 let numberOfProducts = document.createElement('div')
     numberOfProducts.classList.add('numberOfProductsCount')
     numberOfProducts.id = 'numberOfProductsCount'
-    numberOfProducts.innerText = '0';
+    display = displayCartAmount() 
+    numberOfProducts.innerText = display
     headerDiv.appendChild(numberOfProducts)
 
 
@@ -133,8 +134,10 @@ function addProductsToWebpage() {
         paragraphThree.id = 'purchase'
         */
         // Allows the button to be clicked and ads product
-        paragraphThree.addEventListener('click', () => {addToCart(product)
-        console.log(product, 'this is it')}) 
+        update = displayCartAmount()
+        
+        paragraphThree.addEventListener('click', () => {addToCart(product), update
+        console.log(product, update, 'this is it')}) 
         
         btnContainer.appendChild(paragraphThree)
         main.append(btnContainer)
@@ -185,15 +188,34 @@ function displayCartAmount() {
 numberOfProductsCount = document.getElementById('numberOfProductsCount')
 
 let cart = localStorage.getItem("cart")
-if(cart){
-    cart = JSON.parse(cart)
+cart = JSON.parse(cart)
 
-let total = cart.reduce((nr, product) => nr + product.quantity, 0);
+if(cart){
     
     //TODO ---- GET THIS TO WORK. ONLY DISPLAYS IN CONSOLE
     // CANT GET IT TO CHANGE JS RENDERED ELEMENT, ONLY HTML DIV
-    numberOfProductsCount.innerText = total
+    const total = cart.reduce((nr, product) => nr + product.quantity, 0);
     return total
+    
+}
+
+
+function displayCartAmount() {
+
+    //innerText = ""
+    numberOfProductsCount = document.getElementById('numberOfProductsCount')
+    
+    let cart = localStorage.getItem("cart")
+    cart = JSON.parse(cart)
+    
+    if(cart){
+        
+        //TODO ---- GET THIS TO WORK. ONLY DISPLAYS IN CONSOLE
+        // CANT GET IT TO CHANGE JS RENDERED ELEMENT, ONLY HTML DIV
+        const total = cart.reduce((nr, product) => nr + product.quantity, 0);
+        return total
+        
+    }
 }
 
 
@@ -209,10 +231,7 @@ console.log(total2)
 //window.addEventListener("load", displayCartAmount())
 
 
-function getAddition(total, number) {
-    return total + number;
 
-}
 
 
 

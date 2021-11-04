@@ -107,11 +107,12 @@ function removeItem(){
 for (var i =0; i< items.length; i++) {
     var item = JSON.parse(items[i]);
     if (item.title == item.title) {
-        items.slice(i);
-        break;
+        items.slice(i, 1);
+        console.log(items)
     }
 }
 }
+
 
 // Access items from cart 
 function getItems(){

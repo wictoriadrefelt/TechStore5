@@ -55,7 +55,9 @@ function createHeader(){
     function createProduct() {  
     let numberOfProducts = document.createElement('div')
         numberOfProducts.classList.add('numberOfProductsCount')
-        numberOfProducts.innerText = '2'
+        numberOfProducts.id='numberOfProductsCount'
+        amount = displayCartAmount();
+        numberOfProducts.innerText = amount;
         headerDiv.appendChild(numberOfProducts)
     
     let cartIcon = document.createElement('div')
@@ -120,10 +122,45 @@ function getItems() {
 
 function paymenFooter (){
     const h3 = document.querySelector("h3");
-    let totalPayment= document.createElement("h3");
-    totalPayment.classList.add("paymentDiv");
-    totalPayment.innerHTML =`
-    <div>Total price:31975 kr</div>
-    <div><button> Finish your payment </button></div>`;
-    h3.append(totalPayment)
+    let totalPayment= document.createElement("div");
+    totalPayment.classList.add("paymentDiv"); 
+    total = document.createElement('div')
+    totalAmount = totalPrice();
+    total.innerText = 'Total amount:' + ' ' + totalAmount;
+
+    purchaseBtn=document.createElement("button")
+    purchaseBtn.id='purchaseBtn';
+    purchaseBtn.innerText='Finish your payment'
+    totalPayment.append(total, purchaseBtn)
+    h3.append(totalPayment);
+    
 };
+
+function displayCartAmount() {
+    numberOfProductsCount = document.getElementById('numberOfProductsCount')
+    let cart = localStorage.getItem('cart')
+    cart = JSON.parse(cart)
+
+    if(cart!== null){
+        const total = cart.reduce((nr, product)=> nr + product.quantity, 0);
+        return total
+    }else{
+        total = 0;
+        return total
+    }
+}
+
+    function totalPrice(){
+        totalPayment = document.querySelector('totalPayment')
+        let cart = localStorage.getItem('cart')
+        cart = JSON.parse(cart)
+    //let cart = JSON.parse(localStorage.getItem('cart'))
+        let amount = cart.reduce((sum,product) => sum + product.product.price * product.quantity, 0);
+        //display.innerText = amount;
+        console.log(amount)
+        return amount
+    }
+
+
+
+

@@ -45,8 +45,9 @@ let titleDiv = document.createElement('a')
 function createProduct() {  
 let numberOfProducts = document.createElement('div')
     numberOfProducts.classList.add('numberOfProductsCount')
-    
-    numberOfProducts.innerText = '0'
+    numberOfProducts.id='numberOfProductsCount'
+    amount = displayCartAmount();
+    numberOfProducts.innerText = amount;
     headerDiv.appendChild(numberOfProducts)
 
 
@@ -182,33 +183,20 @@ function addToCart(product) {
 
 
 
-function displayCartAmount() {
-let displayProducts = document.getElementById("number")
-let cart = localStorage.getItem("cart")
+    function displayCartAmount() {
+        numberOfProductsCount = document.getElementById('numberOfProductsCount')
+        let cart = localStorage.getItem('cart')
+        cart = JSON.parse(cart)
+    
+        if(cart!== null){
+            const total = cart.reduce((nr, product)=> nr + product.quantity, 0);
+            return total
+        }else{
+            total = 0;
+            return total
+        }
+    }
 
-if(cart) {
-    cart = JSON.parse(cart)
-} else { 
-    cart = []
-}
-
-
-let total = cart.reduce((nr, product) => nr + product.quantity, 0);
-    //TODO ---- GET THIS TO WORK. ONLY DISPLAYS IN CONSOLE
-    // CANT GET IT TO CHANGE JS RENDERED ELEMENT, ONLY HTML DIV
-    displayProducts.innerText = total
-    console.log(displayProducts)
-    console.log(total)
-
-/*
-let total2 = cart(getAddition);
-console.log(total2)
-*/
-
-
-
-}
-window.addEventListener("load", displayCartAmount())
 
 
 function getAddition(total, number) {

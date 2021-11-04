@@ -2,18 +2,7 @@ var listOfProducts = [];
 
 
 
-cart = localStorage.getItem('cart');
 
-cart = JSON.parse(localStorage.getItem('cart'));
-
-function getItems(){
-    //let cart = JSON.parse(localStorage.getItem('cart'))
-    for(let i = 0 ; i < cart.length ; i++ ) {
-        let cartItem = cart[i]  
-        console.log(cartItem.product.title)
-       
-    }}
-    getItems();
 
 function initSite() {
     loadProducts();
@@ -56,7 +45,8 @@ function createProduct() {
 let numberOfProducts = document.createElement('div')
     numberOfProducts.classList.add('numberOfProductsCount')
     numberOfProducts.id = 'numberOfProductsCount'
-    numberOfProducts.innerText = '0'
+    amount = displayCartAmount();
+    numberOfProducts.innerText = amount;
     headerDiv.appendChild(numberOfProducts)
 
 let cartIcon = document.createElement('div')
@@ -141,10 +131,14 @@ getItems();
 function totalPrice(){
 //let cart = JSON.parse(localStorage.getItem('cart'))
     let amount = cart.reduce((sum,product) => sum + product.product.price * product.quantity, 0);
+    //display.innerText = amount;
     console.log(amount)
     return amount
+    
 }
 
+
+/*
 function displayCartAmount() {
 
     //innerText = ""
@@ -159,11 +153,12 @@ function displayCartAmount() {
         console.log(total, 'h')
         //TODO ---- GET THIS TO WORK. ONLY DISPLAYS IN CONSOLE
         // CANT GET IT TO CHANGE JS RENDERED ELEMENT, ONLY HTML DIV
-        clockTitle.innerText = total
+        numberOfProductsCount.innerText = total
         return total
     }
 }
-window.onload(totalPrice(), displayCartAmount())
+*/
+window.onload(totalPrice())
 
         
     function createProduct() {  
@@ -180,7 +175,7 @@ window.onload(totalPrice(), displayCartAmount())
         cartIcon.appendChild(cartImage)
         headerDiv.appendChild(cartImage)
     }
-    }
+    
 
 function secondHeader (){
     const h2 = document.querySelector("h2");
@@ -236,9 +231,33 @@ function paymenFooter (){
     const h3 = document.querySelector("h3");
     let totalPayment= document.createElement("h3");
     totalPayment.classList.add("paymentDiv");
-    totalPayment.innerHTML =`
-    <div>Total price:31975 kr</div>
-    <div><button> Finish your payment </button></div>`;
-    h3.append(totalPayment)
+    total = document.createElement('h3')
+    totalAmount = totalPrice()
+    total.innerText = 'Total amount:' + ' ' + totalAmount;
+   
+    
+    purchaseBtn = document.createElement('button')
+    purchaseBtn.id = 'purchaseBtn'; 
+    purchaseBtn.innerText = 'Finish your payment'
+    h3.append(totalPayment, total, purchaseBtn)
 };
 
+
+
+function displayCartAmount() {
+
+    //innerText = ""
+    numberOfProductsCount = document.getElementById('numberOfProductsCount')
+    
+    let cart = localStorage.getItem("cart")
+    cart = JSON.parse(cart)
+    
+    if(cart){
+        
+        //TODO ---- GET THIS TO WORK. ONLY DISPLAYS IN CONSOLE
+        // CANT GET IT TO CHANGE JS RENDERED ELEMENT, ONLY HTML DIV
+        const total = cart.reduce((nr, product) => nr + product.quantity, 0);
+        return total
+        
+    }
+}    

@@ -41,6 +41,7 @@ main {
     display: flex;
     font-size: 2.5rem;
     text-decoration: none;
+    font-weight: 600;
 }
 .numberOfProductsCount {
     align-items: flex-end;
@@ -68,6 +69,7 @@ main {
     flex-direction: column;
     flex-wrap: wrap;
     background-color: rgb(231, 227, 227);
+    margin-top: 20px;
     }
 
 .cartImage {
@@ -76,6 +78,7 @@ main {
     width: 40px;
     margin-top: 12px;
     margin-right: 20px;
+    cursor: pointer;
 }
 
 .container {
@@ -122,6 +125,7 @@ h3 {
     display: flex;
     flex-direction: column;
     text-align: center;
+    
 }
 
 #purchaseBtn {
@@ -130,7 +134,7 @@ h3 {
     height: 30px;
     border-radius: 7px;
     color: #fff;
-
+    
 }
 /* .trashPicImage{
     width: 1.5rem;

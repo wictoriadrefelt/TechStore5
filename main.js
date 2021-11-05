@@ -46,6 +46,16 @@ function createProduct() {
 let numberOfProducts = document.createElement('div')
     numberOfProducts.classList.add('numberOfProductsCount')
 
+    numberOfProducts.id = 'numberOfProductsCount'
+    amount = displayCartAmount() 
+    if(amount){
+        numberOfProducts.innerText = amount;
+    }else{
+        numberOfProducts.innerText = '0'
+    }
+    
+
+
     numberOfProducts.id='numberOfProductsCount'
     amount = displayCartAmount();
     numberOfProducts.innerText = amount;
@@ -57,7 +67,7 @@ let cartIcon = document.createElement('div')
     cartIcon.classList.add('cartIcon')
     let cartImage = document.createElement('img')
     cartImage.classList.add('cartImage')
-    cartImage.innerHTML = '<i class="fas fa-shopping-cart"></i>'
+    cartImage.innerHTML = "fas fa-shopping-cart"
     cartIcon.appendChild(cartImage)
     headerDiv.appendChild(cartImage)
     if(cartImage){
@@ -184,7 +194,6 @@ function addToCart(product) {
 
 
 
-
     function displayCartAmount() {
         numberOfProductsCount = document.getElementById('numberOfProductsCount')
         let cart = localStorage.getItem('cart')
@@ -199,15 +208,6 @@ function addToCart(product) {
         }
     }
 
-/*
-let total2 = cart(getAddition);
-console.log(total2)
-*/
-
-
-
-}
-//window.addEventListener("load", displayCartAmount())
 
 
 
@@ -216,50 +216,3 @@ console.log(total2)
 
 
 
-/*
-function addToCart(item){
-
-if(JSON.parse(localStorage.getItem('products')) === null){
-    products = [];
-    products.push(item);
-    localStorage.setItem("products",JSON.stringify(items));
-    
-}else{
-    const localItems = JSON.parse(localStorage.getItem("products"));
-    localItems.map(data=>{
-        if(item.id == data.id){
-            item.no = data.no + 1;
-        }else{
-            products.push(data);
-        }
-    });
-    products = [];
-    products.push(item);
-    localStorage.setItem('products',JSON.stringify(products));
-    
-}}
-
-
-*/
-
-
-
-
-
-/*
-function addToCart(prod){
-    
-            let cart = localStorage.getItem('products')
-            console.log(cart, 'inspect')
-            if(cart){
-                cart = JSON.parse(cart);
-                console.log(cart)
-            }else{
-                cart = [];
-                cart.push(prod)
-                localStorage.setItem('products', JSON.stringify(prod))
-                
-            }
-           
-        }
-*/

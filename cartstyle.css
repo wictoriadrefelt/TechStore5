@@ -1,6 +1,8 @@
-body {
+*{
+    box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
+
 
 main {
     display: flex;
@@ -76,13 +78,28 @@ main {
     margin-right: 20px;
 }
 
+.container {
+    display: flex;
+    color: black;
+    height: 400px; 
+    width: 400px; 
+    margin-top: 250px;
+    font-size: 50px;
+    font-weight: 200;
+
+}
+
+#number {
+    text: yellow; 
+    font-size: 200px;
+}
+
 img {
     width: auto;
     height: 200px;
 }
 .titleContainer {
     font-weight: 600;
-    font-family: 'Roboto', sans-serif;
     font-size: 1.5rem;
 }
 

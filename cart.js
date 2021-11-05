@@ -6,10 +6,8 @@ var listOfProducts = [];
 
 function initSite() {
     loadProducts();
-    //secondHeader();
-    //paymentFooter();
     ifEmpty();
-    // This would also be a good place to initialize other parts of the UI
+    
 }
 
 /** Get products from the json file and store it in a gobal variable */
@@ -64,48 +62,6 @@ let cartIcon = document.createElement('div')
 }
 }
 
-/*
-function createProduct() {  
-    let numberOfProducts = document.createElement('div')
-        numberOfProducts.classList.add('numberOfProductsCount')
-        numberOfProducts.innerText = '2'
-        headerDiv.appendChild(numberOfProducts)
-    
-    let cartIcon = document.createElement('div')
-        cartIcon.classList.add('cartIcon')
-        let cartImage = document.createElement('img')
-        cartImage.classList.add('cartImage')
-        cartImage.src = './images/cart.png'
-        cartIcon.appendChild(cartImage)
-        headerDiv.appendChild(cartImage)
-    }
-
-*/
-
-
-/*
-//Creating pop up button 
-const main = document.getElementsByTagName("main")[0];
-let buttonholder = document.createElement('div');
-buttonholder.classList.add('mpopup')
-buttonholder.id = 'mpopupBox';
-console.log(buttonholder)
-let mpopupContent = document.createElement('div');
- mpopupContent.classList.add('mpopup-content')
-let mpopupHead = document.createElement('div')
-mpopupHead.classList.add('mpopup-head')
-let btnClose = document.createElement('span')
-btnClose.classList.add('close')
-btnClose.innerText = 'X'
-let purchaseBtn = document.createElement("button");
-purchaseBtn.classList.add('mpopupButton')
-//buttonholder.addEventListener('click', () => {confirmPurchase()});
-purchaseBtn.innerHTML = "Click Me";
-purchaseBtn.id = 'mpopupButton'
-
-main.appendChild(buttonholder, mpopupContent, mpopupHead, mpLink, btnClose, purchaseBtn)
-
-*/
 
 function confirmPurchase() {
     
@@ -128,38 +84,6 @@ function clearAllItems(){
 let cart = JSON.parse(localStorage.getItem('cart'))
 
 
-
-// Calculate total sum for cart. Returns total amount. 
-function totalPrice(){
-//let cart = JSON.parse(localStorage.getItem('cart'))
-    let amount = cart.reduce((sum,product) => sum + product.product.price * product.quantity, 0);
-    
-    console.log(amount)
-    return amount
-    
-}
-
-
-/*
-function displayCartAmount() {
-
-    //innerText = ""
-    numberOfProductsCount = document.getElementById('numberOfProductsCount')
-    
-    
-    let cart = localStorage.getItem("cart")
-    if(cart){
-        cart = JSON.parse(cart)
-    
-    const total = cart.reduce((nr, product) => nr + product.quantity, 0);
-        console.log(total, 'h')
-        //TODO ---- GET THIS TO WORK. ONLY DISPLAYS IN CONSOLE
-        // CANT GET IT TO CHANGE JS RENDERED ELEMENT, ONLY HTML DIV
-        numberOfProductsCount.innerText = total
-        return total
-    }
-}
-*/
 
 
 
@@ -228,10 +152,8 @@ function getItems() {
         let removebutton = document.createElement("button");
         removebutton.classList.add("delBtnDiv")
         removebutton.title = cartItem.product.title;
-        removebutton.addEventListener('click', function() {deleteItem(this.title) 
-            if(deleteItem){
-                console.log('hey')
-            }})
+        removebutton.addEventListener('click', function() 
+            {deleteItem(this.title)})
         removebutton.innerText= `Remove`
         delContainer.appendChild(removebutton)
         main.append(delContainer);
@@ -249,9 +171,6 @@ function paymentFooter (){
     totalAmount = totalPrice();
     total.innerText = 'Total amount:' + ' ' + totalAmount;
 
-  
-    
-
     purchaseBtn = document.createElement('button')
     purchaseBtn.id = 'purchaseBtn'; 
     purchaseBtn.addEventListener("click", function() {
@@ -260,6 +179,20 @@ function paymentFooter (){
       });
     purchaseBtn.innerText = 'Finish your payment'
     h3.append(totalPayment, total, purchaseBtn)
+
+    }
+
+
+
+
+// Calculate total sum for cart. Returns total amount. 
+function totalPrice(){
+    let amount = cart.reduce((sum,product) => sum + product.product.price * product.quantity, 0);
+    
+    console.log(amount)
+    return amount
+    
+}
 
 
 function displayCartAmount() {
@@ -276,37 +209,6 @@ function displayCartAmount() {
     }
 }
 
-    function totalPrice(){
-        totalPayment = document.querySelector('totalPayment')
-        let cart = localStorage.getItem('cart')
-        cart = JSON.parse(cart)
-    //let cart = JSON.parse(localStorage.getItem('cart'))
-        let amount = cart.reduce((sum,product) => sum + product.product.price * product.quantity, 0);
-        //display.innerText = amount;
-        console.log(amount)
-        return amount
-    }
-
-
-
-
-function displayCartAmount() {
-
-    
-    numberOfProductsCount = document.getElementById('numberOfProductsCount')
-    let cart = localStorage.getItem("cart")
-    cart = JSON.parse(cart)
-    
-    if(cart){
-
-        const total = cart.reduce((nr, product) => nr + product.quantity, 0);
-       
-        return total
-        
-    }
-
-}
-
 
 function deleteItem(title) {
 
@@ -318,10 +220,10 @@ function deleteItem(title) {
 
                if(cart[i].quantity == 1) {
                cart.splice(i, 1);
-               alert('item removed')
+               alert('Product has been removed')
            } else {
                cart[i].quantity--
-               alert('one item removed from cart')
+               alert('One product removed from cart')
            }
             
                localStorage.setItem("cart", JSON.stringify(cart)); 

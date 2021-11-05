@@ -45,9 +45,11 @@ let titleDiv = document.createElement('a')
 function createProduct() {  
 let numberOfProducts = document.createElement('div')
     numberOfProducts.classList.add('numberOfProductsCount')
-    numberOfProducts.id = 'numberOfProductsCount'
-    display = displayCartAmount() 
-    numberOfProducts.innerText = display
+
+    numberOfProducts.id='numberOfProductsCount'
+    amount = displayCartAmount();
+    numberOfProducts.innerText = amount;
+
     headerDiv.appendChild(numberOfProducts)
 
 
@@ -182,43 +184,20 @@ function addToCart(product) {
 
 
 
-function displayCartAmount() {
 
-//innerText = ""
-numberOfProductsCount = document.getElementById('numberOfProductsCount')
-
-let cart = localStorage.getItem("cart")
-cart = JSON.parse(cart)
-
-if(cart){
+    function displayCartAmount() {
+        numberOfProductsCount = document.getElementById('numberOfProductsCount')
+        let cart = localStorage.getItem('cart')
+        cart = JSON.parse(cart)
     
-    //TODO ---- GET THIS TO WORK. ONLY DISPLAYS IN CONSOLE
-    // CANT GET IT TO CHANGE JS RENDERED ELEMENT, ONLY HTML DIV
-    const total = cart.reduce((nr, product) => nr + product.quantity, 0);
-    return total
-    
-}
-
-
-function displayCartAmount() {
-
-    //innerText = ""
-    numberOfProductsCount = document.getElementById('numberOfProductsCount')
-    
-    let cart = localStorage.getItem("cart")
-    cart = JSON.parse(cart)
-    
-    if(cart){
-        
-        //TODO ---- GET THIS TO WORK. ONLY DISPLAYS IN CONSOLE
-        // CANT GET IT TO CHANGE JS RENDERED ELEMENT, ONLY HTML DIV
-        const total = cart.reduce((nr, product) => nr + product.quantity, 0);
-        return total
-        
+        if(cart!== null){
+            const total = cart.reduce((nr, product)=> nr + product.quantity, 0);
+            return total
+        }else{
+            total = 0;
+            return total
+        }
     }
-}
-
-
 
 /*
 let total2 = cart(getAddition);
@@ -229,6 +208,7 @@ console.log(total2)
 
 }
 //window.addEventListener("load", displayCartAmount())
+
 
 
 

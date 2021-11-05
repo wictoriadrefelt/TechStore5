@@ -223,16 +223,39 @@ function deleteItem(title) {
                alert('Product has been removed')
            } else {
                cart[i].quantity--
-               alert('One product removed from cart')
+               let phonename = cart[i].product.title
+               alert('One' + ' ' + phonename + ' ' + 'removed from cart')
            }
             
                localStorage.setItem("cart", JSON.stringify(cart)); 
 
                deleted();
+               updatePrice(this.price);
+       }
+   } 
+}
+
+
+function updatePrice(price) {
+
+    let toUpdate = price;
+
+   for (let i = 0; i < cart.length; i++) {
+
+       if (toUpdate == cart[i].product.price) {
+
+               if(cart[i].price == 1) {
+               return price
+           } else {
+               cart[i].price - cart[i].price
+               return price
+           }
+            
                
        }
    } 
 }
+
 
 
 function deleted() {
@@ -247,7 +270,7 @@ function deleted() {
         
 
     }else {
-        console.log('hej')
+        
     }
 }
 

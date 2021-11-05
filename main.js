@@ -5,7 +5,7 @@ var cart = [];
 
 function initSite() {
     loadProducts();
-    //displayCartAmount();
+   
     
 
     
@@ -45,9 +45,11 @@ let titleDiv = document.createElement('a')
 function createProduct() {  
 let numberOfProducts = document.createElement('div')
     numberOfProducts.classList.add('numberOfProductsCount')
+
     numberOfProducts.id='numberOfProductsCount'
     amount = displayCartAmount();
     numberOfProducts.innerText = amount;
+
     headerDiv.appendChild(numberOfProducts)
 
 
@@ -55,7 +57,7 @@ let cartIcon = document.createElement('div')
     cartIcon.classList.add('cartIcon')
     let cartImage = document.createElement('img')
     cartImage.classList.add('cartImage')
-    cartImage.src = './images/cart.png'
+    cartImage.innerHTML = '<i class="fas fa-shopping-cart"></i>'
     cartIcon.appendChild(cartImage)
     headerDiv.appendChild(cartImage)
     if(cartImage){
@@ -134,8 +136,10 @@ function addProductsToWebpage() {
         paragraphThree.id = 'purchase'
         */
         // Allows the button to be clicked and ads product
-        paragraphThree.addEventListener('click', () => {addToCart(product)
-        console.log(product, 'this is it')}) 
+        update = displayCartAmount()
+        
+        paragraphThree.addEventListener('click', () => {addToCart(product), update
+        console.log(product, update, 'this is it')}) 
         
         btnContainer.appendChild(paragraphThree)
         main.append(btnContainer)
@@ -155,15 +159,13 @@ function addToCart(product) {
     } else {
         cart = []
     }
+    
+    displayCartAmount() 
 
     let index = cart.findIndex((cartItem) => {
     
-        if(cartItem.product.title == product.title){
-            return true
-        }
-            
-        
-        
+        return cartItem.product.title == product.title
+              
     })
 
         if(index < 0) {
@@ -177,9 +179,9 @@ function addToCart(product) {
 
         localStorage.setItem("cart", JSON.stringify
         (cart));
-
-        //displayCartAmount();
+    
     }
+
 
 
 
@@ -197,12 +199,19 @@ function addToCart(product) {
         }
     }
 
+/*
+let total2 = cart(getAddition);
+console.log(total2)
+*/
 
 
-function getAddition(total, number) {
-    return total + number;
 
 }
+//window.addEventListener("load", displayCartAmount())
+
+
+
+
 
 
 

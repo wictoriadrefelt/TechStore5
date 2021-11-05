@@ -89,6 +89,11 @@ main {
 
 }
 
+#number {
+    text: yellow; 
+    font-size: 200px;
+}
+
 img {
     width: auto;
     height: 200px;

@@ -189,7 +189,6 @@ function addToCart(product) {
 
 function displayCartAmount() {
 
-    //innerText = ""
     numberOfProductsCount = document.getElementById('numberOfProductsCount')
     
     let cart = localStorage.getItem("cart")
@@ -205,17 +204,6 @@ function displayCartAmount() {
     }
 }
 
-
-
-/*
-let total2 = cart(getAddition);
-console.log(total2)
-*/
-
-
-
-
-//window.addEventListener("load", displayCartAmount())
 
 
 

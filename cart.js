@@ -46,8 +46,7 @@ function createProduct() {
 let numberOfProducts = document.createElement('div')
     numberOfProducts.classList.add('numberOfProductsCount')
     numberOfProducts.id = 'numberOfProductsCount'
-    amount = displayCartAmount();
-    amount = displayCartAmount() 
+    amount = displayCartAmount(); 
     if(amount){
         numberOfProducts.innerText = amount;
     }else{
@@ -65,6 +64,23 @@ let cartIcon = document.createElement('div')
 }
 }
 
+/*
+function createProduct() {  
+    let numberOfProducts = document.createElement('div')
+        numberOfProducts.classList.add('numberOfProductsCount')
+        numberOfProducts.innerText = '2'
+        headerDiv.appendChild(numberOfProducts)
+    
+    let cartIcon = document.createElement('div')
+        cartIcon.classList.add('cartIcon')
+        let cartImage = document.createElement('img')
+        cartImage.classList.add('cartImage')
+        cartImage.src = './images/cart.png'
+        cartIcon.appendChild(cartImage)
+        headerDiv.appendChild(cartImage)
+    }
+
+*/
 
 
 /*
@@ -102,7 +118,7 @@ function confirmPurchase() {
 
 
 
-// TODO, ADD TO BUTTON AND CONNECT TO PURCHASE BUTTON
+
 // Clears local storage
 function clearAllItems(){
     
@@ -111,20 +127,7 @@ function clearAllItems(){
 
 let cart = JSON.parse(localStorage.getItem('cart'))
 
-/*
-// Removes item from cart 
-// LOOK IN TO THIS MORE 
-function removeItem(){
-for (var i =0; i< items.length; i++) {
-    var item = JSON.parse(items[i]);
-    if (item.title == item.title) {
-        items.slice(i, 1);
-        console.log(items)
-    }
-}
-}
 
-*/
 
 // Calculate total sum for cart. Returns total amount. 
 function totalPrice(){
@@ -160,21 +163,7 @@ function displayCartAmount() {
 
 
         
-    function createProduct() {  
-    let numberOfProducts = document.createElement('div')
-        numberOfProducts.classList.add('numberOfProductsCount')
-        numberOfProducts.innerText = '2'
-        headerDiv.appendChild(numberOfProducts)
-    
-    let cartIcon = document.createElement('div')
-        cartIcon.classList.add('cartIcon')
-        let cartImage = document.createElement('img')
-        cartImage.classList.add('cartImage')
-        cartImage.src = './images/cart.png'
-        cartIcon.appendChild(cartImage)
-        headerDiv.appendChild(cartImage)
-    }
-
+   
   
 
 function secondHeader (){
@@ -242,7 +231,10 @@ function getItems() {
         let removebutton = document.createElement("button");
         removebutton.classList.add("delBtnDiv")
         removebutton.title = cartItem.product.title;
-        removebutton.addEventListener('click', function() {deleteItem(this.title)})
+        removebutton.addEventListener('click', function() {deleteItem(this.title) 
+            if(deleteItem){
+                console.log('hey')
+            }})
         removebutton.innerText= `Remove`
         delContainer.appendChild(removebutton)
         main.append(delContainer);
@@ -274,15 +266,15 @@ function paymentFooter (){
 
 function displayCartAmount() {
 
-    //innerText = ""
-    numberOfProductsCount = document.getElementById('numberOfProductsCount')
     
+    numberOfProductsCount = document.getElementById('numberOfProductsCount')
     let cart = localStorage.getItem("cart")
     cart = JSON.parse(cart)
     
     if(cart){
 
         const total = cart.reduce((nr, product) => nr + product.quantity, 0);
+       
         return total
         
     }
@@ -299,7 +291,7 @@ function deleteItem(title) {
 
                if(cart[i].quantity == 1) {
                cart.splice(i, 1);
-               alert("No more items in cart")
+               alert('item removed')
            } else {
                cart[i].quantity--
                alert('one item removed from cart')
@@ -326,6 +318,6 @@ function deleted() {
         
 
     }else {
-        createProduct()
+        console.log('hej')
     }
 }

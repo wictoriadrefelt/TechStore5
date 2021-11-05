@@ -2,12 +2,10 @@
 var listOfProducts = [];
 var cart = []; 
 
-
 function initSite() {
     loadProducts();
-   
-    
 }
+
 
 /** Get products from the json file and store it in a gobal variable */
 function loadProducts() {
@@ -38,7 +36,6 @@ let titleDiv = document.createElement('a')
     
     createProduct();
 
-    
 function createProduct() {  
 let numberOfProducts = document.createElement('div')
     numberOfProducts.classList.add('numberOfProductsCount')
@@ -51,22 +48,20 @@ let numberOfProducts = document.createElement('div')
         numberOfProducts.innerText = '0'
     }
     
-
-
     numberOfProducts.id='numberOfProductsCount'
     amount = displayCartAmount();
     numberOfProducts.innerText = amount;
 
-    headerDiv.appendChild(numberOfProducts)
+    headerDiv.appendChild(numberOfProducts);
 
 
-let cartIcon = document.createElement('div')
+    let cartIcon = document.createElement('div')
     cartIcon.classList.add('cartIcon')
     let cartImage = document.createElement('img')
     cartImage.classList.add('cartImage')
-    cartImage.innerHTML = "fas fa-shopping-cart"
-    cartIcon.appendChild(cartImage)
-    headerDiv.appendChild(cartImage)
+    cartImage.src = './images/cart.png'
+    cartIcon.append(cartImage)
+    headerDiv.append(cartImage)
     if(cartImage){
         {
             cartImage.onclick = function(e) {

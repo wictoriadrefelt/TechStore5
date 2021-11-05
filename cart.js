@@ -170,7 +170,7 @@ function paymentFooter (){
     total = document.createElement('div')
     totalAmount = totalPrice();
     total.innerText = 'Total amount:' + ' ' + totalAmount;
-
+    
     purchaseBtn = document.createElement('button')
     purchaseBtn.id = 'purchaseBtn'; 
     purchaseBtn.addEventListener("click", function() {
@@ -178,7 +178,8 @@ function paymentFooter (){
         clearAllItems()
       });
     purchaseBtn.innerText = 'Finish your payment'
-    h3.append(totalPayment, total, purchaseBtn)
+    totalPayment.append(total, purchaseBtn)
+    h3.append(totalPayment)
 
     }
 

@@ -110,12 +110,27 @@ img {
     border-radius: 7px;
     color: #fff;
 }
-.paymentDiv {
+/* .paymentDiv {
     display: flex;
     flex-direction: column;
     margin-top: 50px;
     text-align: center;
     justify-content: center;
+} */
+
+h3 {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#purchaseBtn {
+    background-color: rgba(53, 64, 216, 0.884);
+    width: 200px;
+    height: 30px;
+    border-radius: 7px;
+    color: #fff;
+
 }
 /* .trashPicImage{
     width: 1.5rem;

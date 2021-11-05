@@ -45,6 +45,7 @@ let titleDiv = document.createElement('a')
 function createProduct() {  
 let numberOfProducts = document.createElement('div')
     numberOfProducts.classList.add('numberOfProductsCount')
+
     numberOfProducts.id = 'numberOfProductsCount'
     amount = displayCartAmount() 
     if(amount){
@@ -53,6 +54,12 @@ let numberOfProducts = document.createElement('div')
         numberOfProducts.innerText = '0'
     }
     
+
+
+    numberOfProducts.id='numberOfProductsCount'
+    amount = displayCartAmount();
+    numberOfProducts.innerText = amount;
+
     headerDiv.appendChild(numberOfProducts)
 
 
@@ -187,74 +194,25 @@ function addToCart(product) {
 
 
 
-function displayCartAmount() {
-
-    numberOfProductsCount = document.getElementById('numberOfProductsCount')
+    function displayCartAmount() {
+        numberOfProductsCount = document.getElementById('numberOfProductsCount')
+        let cart = localStorage.getItem('cart')
+        cart = JSON.parse(cart)
     
-    let cart = localStorage.getItem("cart")
-    cart = JSON.parse(cart)
-    
-    if(cart){
-        
-        //TODO ---- GET THIS TO WORK. ONLY DISPLAYS IN CONSOLE
-        // CANT GET IT TO CHANGE JS RENDERED ELEMENT, ONLY HTML DIV
-        const total = cart.reduce((nr, product) => nr + product.quantity, 0);
-        return total
-        
-    }
-}
-
-
-
-
-
-
-
-
-/*
-function addToCart(item){
-
-if(JSON.parse(localStorage.getItem('products')) === null){
-    products = [];
-    products.push(item);
-    localStorage.setItem("products",JSON.stringify(items));
-    
-}else{
-    const localItems = JSON.parse(localStorage.getItem("products"));
-    localItems.map(data=>{
-        if(item.id == data.id){
-            item.no = data.no + 1;
+        if(cart!== null){
+            const total = cart.reduce((nr, product)=> nr + product.quantity, 0);
+            return total
         }else{
-            products.push(data);
+            total = 0;
+            return total
         }
-    });
-    products = [];
-    products.push(item);
-    localStorage.setItem('products',JSON.stringify(products));
-    
-}}
-
-
-*/
+    }
 
 
 
 
 
-/*
-function addToCart(prod){
-    
-            let cart = localStorage.getItem('products')
-            console.log(cart, 'inspect')
-            if(cart){
-                cart = JSON.parse(cart);
-                console.log(cart)
-            }else{
-                cart = [];
-                cart.push(prod)
-                localStorage.setItem('products', JSON.stringify(prod))
-                
-            }
-           
-        }
-*/
+
+
+
+

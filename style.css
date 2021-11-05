@@ -11,7 +11,6 @@ body {
     flex-direction: row;
     align-content: space-between;
     justify-content: space-between;
-    /*justify-content: space-between; */
     position: fixed;
     margin: 0%;
     right: 0px;
@@ -38,14 +37,9 @@ body {
 
 .numberOfProductsCount {
     align-items:flex-end;
-    
     font-size: 40px;
     color: white;
-    
-    margin: 6px;
-    
-     
-    
+    margin: 6px;  
 
 }
 
@@ -149,56 +143,6 @@ img {
 }
 
 
-/* for pop up button */
-.mpopup {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    padding-top: 100px;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
-}
-.mpopup-content {
-    position: relative;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    width: 60%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    -webkit-animation-name: animatetop;
-    -webkit-animation-duration: 0.4s;
-    animation-name: animatetop;
-    animation-duration: 0.4s
-}
-
-.mpopup-head {
-    padding: 2px 16px;
-    background-color: #ff0000;
-    color: white;
-}
-.mpopup-main {padding: 2px 16px;}
-.mpopup-foot {
-    padding: 2px 16px;
-    background-color: #ff0000;
-    color: #ffffff;
-}
-
-
-@-webkit-keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
-}
-
-@keyframes animatetop {
-    from {top:-300px; opacity:0}
-    to {top:0; opacity:1}
-}
-
 .close {
     color: white;
     float: right;
@@ -211,147 +155,12 @@ img {
     cursor: pointer;
 }
 
-/* 
-h2 {
-    font-size: 1.5em;
-    margin-block-start: 3em;
-    margin-block-end: 0.3em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-    justify-content: center;
-    display: flex;
-    font-family: 'Roboto', sans-serif;
-}
-
-h3 {
-    display: flex;
-    font-size: 1em;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-    font-family: 'Roboto', sans-serif;
-}
-
-.price {
-    font-weight: bold;
-    display: flex;
-    font-family: 'Roboto', sans-serif;
-}
-.kundvagn {
-    display: flex;
-    background: #4f9de6;
-    border: 10px #4f9de6 solid;
-    color: white;
-    border-radius: 10px;
-    width: 14em;
-}
-
-.cart2 {
-    flex: 1;
-}
-
-.läggiKV {
-    flex: 3;
-    font-family: 'Roboto', sans-serif;
-}
-
-
-body, html {
-    text-align: center;
-}
-
-
-.firstname {
-    margin-top: 40px;
-    font-family: 'Roboto', sans-serif;
-}
-
-.articles {
-    display: flex;
-    flex-direction: center;
-    height: 60%;
-    justify-content: center;
-    
-
-}
-
-.front {
-    background-color: #f2f2f2;
-    margin: 20px;
-    border-radius: 8px;
-    outline-style: groove;
-    outline-color: blue;
-}
 
 
 
-.img1 {
-    width: 150px;
-    margin: 20px;
-
-}
-.img2 {
-    width: 230px;
-    margin: 20px;
-
-}
-.img3 {
-    width: 130px;
-    margin: 20px;
-
-}
-.img4 {
-    width: 150px;
-    margin: 20px;
-
-}
-
-.button {
-    background-color: #A25127;
-    width: 100px;
-    display: flex;
-    border-radius: 6px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-    
-    
-}
-
-.smallcart {
-    background-color: cornflowerblue;
-    height: 40px;
-    width: 200px;
-   margin-bottom: 100px;
-   margin-top: 40px;
-   font-family: 'Roboto', sans-serif;
-   border-radius: 10px;
-  
 
 
-}
-
-.total {
-    margin-top: 20px;
-    font-family: 'Roboto', sans-serif;
-
-}
 
 
-.body {
-    font-family: 'Roboto', sans-serif;
 
-}
-
-
- */
-
-
-/* phone */
-
-/* @media (max-width: 600px) {
-    
 

@@ -7,9 +7,6 @@ function initSite() {
     loadProducts();
    
     
-
-    
-    // This would also be a good place to initialize other parts of the UI
 }
 
 /** Get products from the json file and store it in a gobal variable */

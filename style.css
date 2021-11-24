@@ -5,7 +5,7 @@ body {
 
 .header {
     background-color: black;
-    height: 60px;
+    height: 52px;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -25,7 +25,8 @@ body {
    flex:1 1 200px;
    border: 1px solid black;
    display: flex;
-   font-size: 2.5rem;
+   font-size: 1.8rem;
+   margin-left: 20px;
    text-decoration: none;
    
 }
@@ -34,9 +35,9 @@ body {
 
 .numberOfProductsCount {
     align-items:flex-end;
-    font-size: 40px;
+    font-size: 30px;
     color: white;
-    margin: 6px;  
+    margin: 8px;  
 
 }
 
@@ -105,27 +106,30 @@ img {
 .btndiv {
     display: inline-flex;
     margin-top: 30px;
-    box-sizing: border-box;
-    width: 200px;
-    text-align: center;
-    background-color: rgb(73, 135, 216);
+    border: none;
+    width: 280px;
+    height: 40px;
+    background-color: #339DFF;
     border-radius: 15px;
+    justify-content: center;
 }
+
 .cartImageInMain{
     width: 1.5rem;
     height: auto;
     color:#fff;
     margin-right: 30px;
     margin-left:20px ;
-    margin-top: 10px;
+    margin-top: 6px;
     margin-bottom: 10px;
 }
+
 .text {
     font-weight: 200;
     font-family: 'Roboto', sans-serif;
     font-size: 1.1rem;
     color: #fff;
-    margin-top: 10px;
+    margin-top: 6px;
     padding-top: 2px;
 }
 
@@ -141,19 +145,16 @@ img {
 
 }
 
-
-.close {
-    color: white;
-    float: right;
-    font-size: 28px;
+.displayPrice {
     font-weight: bold;
 }
-.close:hover, .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
 
+
+
+.imgdiv {
+    background-image: linear-gradient(white, whitesmoke);
+  }
+  
 
 
 

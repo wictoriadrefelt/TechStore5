@@ -43,6 +43,7 @@ main {
     text-decoration: none;
     font-weight: 600;
 }
+
 .numberOfProductsCount {
     align-items: flex-end;
     width: 40px;
@@ -65,7 +66,7 @@ main {
     padding-top: 20px;
     padding-bottom: 20px;
     text-align: center;
-    justify-content: space-around;
+    justify-content: fixed;
     flex-direction: column;
     flex-wrap: wrap;
     background-color: rgb(231, 227, 227);

@@ -116,7 +116,8 @@ function addProductsToWebpage() {
        // Representing the price of a productCard
         let priceContainer = document.createElement("div");
         priceContainer.classList.add("pricediv")
-        let  paragrahTwo= document.createElement("p2");
+        let paragrahTwo = document.createElement("p2");
+        paragrahTwo.classList.add('displayPrice')
         paragrahTwo.innerText = product.price+" kr"
         priceContainer.appendChild(paragrahTwo)
         main.append(priceContainer)
@@ -130,7 +131,7 @@ function addProductsToWebpage() {
         cartPic.src = './images/cart-arrow.png' 
         let addToCartText = document.createElement("text")
         addToCartText.classList.add('text')
-        addToCartText.innerText =`Add to cart`
+        addToCartText.innerText =`Lägg till i kundvagnen`
         paragraphThree.append(cartPic, addToCartText)
         /* paragraphThree.innerText = cartImage  */
         /*
@@ -199,12 +200,3 @@ function addToCart(product) {
             return total
         }
     }
-
-
-
-
-
-
-
-
-

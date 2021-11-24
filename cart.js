@@ -177,7 +177,7 @@ function paymentFooter (){
         confirmPurchase()
         clearAllItems()
       });
-    purchaseBtn.innerText = 'Finish your payment'
+    purchaseBtn.innerText = 'Slutför ditt köp'
     totalPayment.append(total, purchaseBtn)
     h3.append(totalPayment)
 

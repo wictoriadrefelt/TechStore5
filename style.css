@@ -105,45 +105,37 @@ img {
 } 
 .btndiv {
     display: inline-flex;
-    margin-top: 30px;
+    margin-top: 25px;
     border: none;
     width: 280px;
     height: 40px;
     background-color: #339DFF;
     border-radius: 15px;
-    justify-content: center;
+    
 }
 
 .cartImageInMain{
-    width: 1.5rem;
-    height: auto;
+    width: 1.2rem;
+    height: 1.2rem;
     color:#fff;
-    margin-right: 30px;
-    margin-left:20px ;
-    margin-top: 6px;
+    
+    margin-left: 10px;
+    margin-top: 8px;
     margin-bottom: 10px;
 }
 
 .text {
-    font-weight: 200;
-    font-family: 'Roboto', sans-serif;
+    font-weight: 140;
     font-size: 1.1rem;
     color: #fff;
     margin-top: 6px;
     padding-top: 2px;
+    margin-left: 15px;
 }
 
 
 
-#purchaseBtn {
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    outline: none;
-    font-size: inherit;
-    
 
-}
 
 .displayPrice {
     font-weight: bold;

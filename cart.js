@@ -108,7 +108,7 @@ function ifEmpty(){
         main.append(cartPage);
         
             let container = document.createElement('div');
-            container.innerText = 'Nothing in cart'
+            container.innerText = 'Kundvagnen är tom'
             cartPage.append(container)
             j = 1
             return
@@ -177,17 +177,23 @@ function paymentFooter (){
     total.classList.add("priceDiv")
     totalAmount = totalPrice();
     total.innerText = 'Totalt pris:' + ' ' + totalAmount + " kr";
-    
-    purchaseBtn = document.createElement('button')
+
+    let purchaseBtn = document.createElement('button')
+    let checkBox = document.createElement('img')
     purchaseBtn.id = 'purchaseBtn'; 
+        checkBox.classList.add('checkBox')
+        checkBox.src = './images/checked.png' 
+   
     purchaseBtn.addEventListener("click", function() {
         confirmPurchase()
         clearAllItems()
       });
+
       let tickPic= document.createElement('img')
       tickPic.classList.add('tickPic')
       tickPic.src = './images/checkmark-128.png' 
       purchaseBtn.append(tickPic,' Slutför ditt köp' )
+
     totalPayment.append(total, purchaseBtn)
     h3.append(totalPayment)
 

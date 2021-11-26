@@ -5,7 +5,7 @@ body {
 
 .header {
     background-color: black;
-    height: 60px;
+    height: 52px;
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -16,16 +16,19 @@ body {
     right: 0px;
     top: 0px;
     left:0px;
+    
 }
 
 .techStoreDiv {
+   width: 80%;
    margin-top: 5px;
    margin-left: 10px;
    color: white;
    flex:1 1 200px;
    border: 1px solid black;
    display: flex;
-   font-size: 2.5rem;
+   font-size: 1.8rem;
+   margin-left: 20px;
    text-decoration: none;
    
 }
@@ -33,10 +36,16 @@ body {
 
 
 .numberOfProductsCount {
-    align-items:flex-end;
-    font-size: 40px;
+    display: flex;
+    position: fixed;
+    font-size: 30px;
     color: white;
-    margin: 6px;  
+    width: 90%;
+    margin-top: 10px;
+    justify-content: flex-end;
+    z-index: 9; 
+    background-color: none;
+    
 
 }
 
@@ -55,7 +64,9 @@ body {
     align-content: center;
     align-items: flex-end;
     justify-content: flex-end;
+    z-index: -1;
 }
+
 #cart-btn {
     background: none;
     border: none;
@@ -80,6 +91,7 @@ main {
     display: flex;
     flex-direction: column;
     margin-top: 50px;
+    z-index: -1;
 }
 
 .carddiv {
@@ -99,6 +111,7 @@ main {
     width: auto;
     height: 410px;
     text-align: center;
+    z-index: -1;
 }
 
 img {
@@ -112,57 +125,61 @@ img {
 } 
 .btndiv {
     display: inline-flex;
+/*
     margin-top: 30px;
     box-sizing: border-box;
     width: 25 rem;
     text-align: center;
     background-color: rgb(73, 135, 216);
     border-radius: 10px;
+*/
+    margin-top: 25px;
+    border: none;
+    width: 250px;
+    height: 40px;
+    background-color: #339DFF;
+    border-radius: 15px;
+    
 }
+
 .cartImageInMain{
-    width: 1.5rem;
-    height: auto;
+    width: 1.2rem;
+    height: 1.2rem;
     color:#fff;
     margin-right: 15px;
     margin-left:20px ;
     margin-top: 10px;
+
     margin-bottom: 10px;
 }
+
 .text {
+
     font-weight: 200;
-    font-family: 'Roboto', sans-serif;
+    
     font-size: 1.2rem;
+
     color: #fff;
-    margin-top: 10px;
+    margin-top: 6px;
     padding-top: 2px;
     margin-right:10px;
-}
-
-
-
-#purchaseBtn {
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    outline: none;
-    font-size: inherit;
-    
 
 }
 
 
-.close {
-    color: white;
-    float: right;
-    font-size: 28px;
+
+
+
+.displayPrice {
     font-weight: bold;
 }
-.close:hover, .close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
 
+
+
+.imgdiv {
+    background-image: linear-gradient(white, whitesmoke);
+  }
+  
 
 
 

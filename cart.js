@@ -91,8 +91,11 @@ function secondHeader (){
     const h2 = document.querySelector("h2");
     let secondHeader = document.createElement("h2");
     secondHeader.classList.add("secondHeaderDiv");
-    secondHeader.innerText=`Shopping Cart`;
-    h2.append(secondHeader)
+    let cartInBlack = document.createElement('img')
+    cartInBlack.classList.add('cartInBlack')
+    cartInBlack.src = './images/shopping-cart-black-shape.png' 
+    secondHeader.innerText=`Kundvagn`;
+    h2.append(cartInBlack, secondHeader)
 };
 
 function ifEmpty(){
@@ -151,11 +154,14 @@ function getItems() {
         delContainer.classList.add("deldiv");
         let removebutton = document.createElement("button");
         removebutton.classList.add("delBtnDiv")
+        let trashcanPic = document.createElement("img")
+        trashcanPic.classList.add("trashCan")
+        trashcanPic.src = './images/trash can.png' 
         removebutton.title = cartItem.product.title;
+        removebutton.innerText= ` Ta bort `
         removebutton.addEventListener('click', function() 
-            {deleteItem(this.title)})
-        removebutton.innerText= `Remove`
-        delContainer.appendChild(removebutton)
+        {deleteItem(this.title)})
+        delContainer.append(trashcanPic, removebutton)
         main.append(delContainer);
 
         cartPage.append(imgDiv, titleContainer, priceDiv, delContainer);
@@ -168,9 +174,10 @@ function paymentFooter (){
     let totalPayment= document.createElement("div");
     totalPayment.classList.add("paymentDiv"); 
     total = document.createElement('div')
+    total.classList.add("priceDiv")
     totalAmount = totalPrice();
-    total.innerText = 'Totalt pris:' + ' ' + totalAmount;
-    
+    total.innerText = 'Totalt pris:' + ' ' + totalAmount + " kr";
+
     let purchaseBtn = document.createElement('button')
     let checkBox = document.createElement('img')
     purchaseBtn.id = 'purchaseBtn'; 
@@ -181,8 +188,12 @@ function paymentFooter (){
         confirmPurchase()
         clearAllItems()
       });
-    purchaseBtn.innerText = 'Slutför ditt köp'
-    purchaseBtn.append(checkBox)
+
+      let tickPic= document.createElement('img')
+      tickPic.classList.add('tickPic')
+      tickPic.src = './images/checkmark-128.png' 
+      purchaseBtn.append(tickPic,' Slutför ditt köp' )
+
     totalPayment.append(total, purchaseBtn)
     h3.append(totalPayment)
 

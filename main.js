@@ -33,28 +33,8 @@ let titleDiv = document.createElement('a')
     titleDiv.title = 'TechStore';
     titleDiv.href = 'index.html';
     headerDiv.appendChild(titleDiv)
-    
-    createProduct();
-
-function createProduct() {  
-let numberOfProducts = document.createElement('div')
-    numberOfProducts.classList.add('numberOfProductsCount')
-
-    numberOfProducts.id = 'numberOfProductsCount'
-    amount = displayCartAmount() 
-    if(amount){
-        numberOfProducts.innerText = amount;
-    }else{
-        numberOfProducts.innerText = '0'
-    }
-    
-    numberOfProducts.id='numberOfProductsCount'
-    amount = displayCartAmount();
-    numberOfProducts.innerText = amount;
-
-    headerDiv.appendChild(numberOfProducts);
-
-
+    let counter = document.querySelector('#numberOfProductCount')
+    headerDiv.append(counter)
     let cartIcon = document.createElement('div')
     cartIcon.classList.add('cartIcon')
     let cartImage = document.createElement('img')
@@ -70,10 +50,11 @@ let numberOfProducts = document.createElement('div')
           }
     }
 }
-}
 
+  
 
 /** Uses the loaded products data to create a visible product list on the website */
+
 function addProductsToWebpage() {
     const main = document.getElementsByTagName("main")[0];
     
@@ -116,7 +97,8 @@ function addProductsToWebpage() {
        // Representing the price of a productCard
         let priceContainer = document.createElement("div");
         priceContainer.classList.add("pricediv")
-        let  paragrahTwo= document.createElement("p2");
+        let paragrahTwo = document.createElement("p2");
+        paragrahTwo.classList.add('display')
         paragrahTwo.innerText = product.price+" kr"
         priceContainer.appendChild(paragrahTwo)
         main.append(priceContainer)
@@ -130,7 +112,7 @@ function addProductsToWebpage() {
         cartPic.src = './images/cart-arrow.png' 
         let addToCartText = document.createElement("text")
         addToCartText.classList.add('text')
-        addToCartText.innerText =`Add to cart`
+        addToCartText.innerText =`Lägg till i kundvagnen`
         paragraphThree.append(cartPic, addToCartText)
         /* paragraphThree.innerText = cartImage  */
         /*
@@ -187,24 +169,20 @@ function addToCart(product) {
 
 
     function displayCartAmount() {
-        numberOfProductsCount = document.getElementById('numberOfProductsCount')
-        let cart = localStorage.getItem('cart')
-        cart = JSON.parse(cart)
+        let numberOfProductsCount = document.getElementById('numberOfProductsCount')
+
     
-        if(cart!== null){
-            const total = cart.reduce((nr, product)=> nr + product.quantity, 0);
-            return total
-        }else{
-            total = 0;
-            return total
+        let cart = localStorage.getItem("cart")
+    
+        if(cart) {
+            cart = JSON.parse(cart)
+        } else { 
+            cart = []
         }
-    }
-
-
-
-
-
-
-
-
+    
+        let totalSum = cart.reduce((sum,item) => sum + item.quantity, 0);
+        
+        numberOfProductsCount.textContent = totalSum
+    
+     }
 

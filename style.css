@@ -10,7 +10,7 @@ body {
     display: flex;
     flex-direction: row;
     align-content: space-between;
-    justify-content: space-between;
+    justify-content: flex-end;
     position: fixed;
     margin: 0%;
     right: 0px;
@@ -40,8 +40,8 @@ body {
     position: fixed;
     font-size: 30px;
     color: white;
-    width: 90%;
     margin-top: 10px;
+    margin-right: 70px;
     justify-content: flex-end;
     z-index: 9; 
     background-color: none;
@@ -157,10 +157,10 @@ img {
 
     font-weight: 200;
     
-    font-size: 1.2rem;
+    font-size: 1rem;
 
     color: #fff;
-    margin-top: 6px;
+    margin-top: 10px;
     padding-top: 2px;
     margin-right:10px;
 
@@ -176,7 +176,7 @@ img {
 
 
 
-.imgdiv {
+.carddiv {
     background-image: linear-gradient(white, whitesmoke);
   }
   

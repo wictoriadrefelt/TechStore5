@@ -24,7 +24,7 @@ function createHeader(){
 const head = document.getElementsByTagName('header')[0];
 let headerDiv = document.createElement('div')
     headerDiv.classList.add('header')
-    head.appendChild(headerDiv)
+    //head.appendChild(headerDiv)
 
 let titleDiv = document.createElement('a')
     titleDiv.classList.add('techStoreDiv')
@@ -32,16 +32,16 @@ let titleDiv = document.createElement('a')
     titleDiv.appendChild(titleLink)
     titleDiv.title = 'TechStore';
     titleDiv.href = 'index.html';
-    headerDiv.appendChild(titleDiv)
-    let counter = document.querySelector('#numberOfProductCount')
-    headerDiv.append(counter)
+    head.appendChild(titleDiv)
+    //let counter = document.querySelector('#numberOfProductCount')
+    //head.append(counter)
     let cartIcon = document.createElement('div')
     cartIcon.classList.add('cartIcon')
     let cartImage = document.createElement('img')
     cartImage.classList.add('cartImage')
     cartImage.src = './images/cart.png'
     cartIcon.append(cartImage)
-    headerDiv.append(cartImage)
+    head.append(cartImage)
     if(cartImage){
         {
             cartImage.onclick = function(e) {
@@ -135,7 +135,6 @@ function addProductsToWebpage() {
 
 
 // Add product to cart. 
-// Located index of item (if exists) and 
 function addToCart(product) {     
     let cart = localStorage.getItem("cart")
     if(cart) {
@@ -167,7 +166,7 @@ function addToCart(product) {
     }
 
 
-
+    // Display number of items in cart 
     function displayCartAmount() {
         let numberOfProductsCount = document.getElementById('numberOfProductsCount')
 
@@ -180,9 +179,9 @@ function addToCart(product) {
             cart = []
         }
     
-        let totalSum = cart.reduce((sum,item) => sum + item.quantity, 0);
+        let totalSum = cart.reduce((sum, product) => sum + product.quantity, 0);
         
-        numberOfProductsCount.textContent = totalSum
+        numberOfProductsCount.innerText = totalSum
     
      }
 

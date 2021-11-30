@@ -98,6 +98,7 @@ function secondHeader (){
     h2.append(cartInBlack, secondHeader)
 };
 
+// Checks if cart is empty and if so, displays message
 function ifEmpty(){
     let j = 0
     while (j == 0){
@@ -211,14 +212,14 @@ function totalPrice(){
     
 }
 
-
+// Displays number of articles in cart. 
 function displayCartAmount() {
     numberOfProductsCount = document.getElementById('numberOfProductsCount')
     let cart = localStorage.getItem('cart')
     cart = JSON.parse(cart)
 
     if(cart!== null){
-        const total = cart.reduce((nr, product)=> nr + product.quantity, 0);
+        const total = cart.reduce((sum, product)=> sum + product.quantity, 0);
         return total
     }else{
         total = 0;
@@ -227,6 +228,7 @@ function displayCartAmount() {
 }
 
 
+// Deletes product in cart 
 function deleteItem(title) {
 
     let toRemove = title;
@@ -238,10 +240,12 @@ function deleteItem(title) {
                if(cart[i].quantity == 1) {
                cart.splice(i, 1);
                alert('Product has been removed')
+               displayCartAmount()
            } else {
                cart[i].quantity--
                let phonename = cart[i].product.title
                alert('One' + ' ' + phonename + ' ' + 'removed from cart')
+               displayCartAmount()
            }
             
                localStorage.setItem("cart", JSON.stringify(cart)); 
@@ -252,7 +256,7 @@ function deleteItem(title) {
    } 
 }
 
-
+// Displays total price
 function updatePrice(price) {
 
     let toUpdate = price;
@@ -282,12 +286,10 @@ function deleted() {
         cart = JSON.parse(localStorage.getItem("cart"));
         
         clearAllItems()
-        displayCartAmount()
         window.location.reload()
+
         
 
-    }else {
-        
-    }
+    } 
+   displayCartAmount()
 }
-

@@ -10,10 +10,7 @@ main {
     margin-top: 20px;
     text-align: center;
     justify-content: center;
-   
-    
     justify-content: center;
-
     border: none;
     flex-wrap: wrap;
 }
@@ -26,54 +23,52 @@ main {
     display: flex;
     flex-direction: row;
     align-content: space-between;
-    justify-content: space-between;
+    justify-content: flex-end;
     position: fixed;
     margin: 0%;
     right: 0px;
     top: 0px;
     left:0px;
+    
 }
 
 .techStoreDiv {
-    margin-top: 5px;
-    margin-left: 10px;
-    color: white;
-    flex:1 1 200px;
-    border: 1px solid black;
+   width: 80%;
+   margin-top: 8px;
+   margin-left: 10px;
+   color: white;
+   flex:1 1 200px;
+   display: flex;
+   font-size: 1.8rem;
+   margin-left: 20px;
+   text-decoration: none;
+   
+}
+
+
+
+.numberOfProductsCount {
     display: flex;
-    font-size: 1.8rem;
-    margin-left: 20px;
-    text-decoration: none;
+    position: fixed;
+    font-size: 30px;
+    color: white;
+    margin-top: 10px;
+    margin-right: 70px;
+    justify-content: flex-end;
+    z-index: 9; 
+    background-color: none;
     
- }
- 
- 
- 
- .numberOfProductsCount {
-     align-items:flex-end;
-     font-size: 30px;
-     color: white;
-     margin: 8px;  
- 
- }
- 
- .cartIcon {
-     flex: 1;
-     width: 40px;
-     margin: 10px;
-     margin-bottom: 20px;
-     padding-inline-start: 2em;
-     padding-top: 5px;
-     margin-right: 20px;
-     display: flex;
-     position: relative;
-     flex-direction: row;
-     flex-wrap: wrap;
-     align-content: center;
-     align-items: flex-end;
-     justify-content: flex-end;
- }
- 
+
+}
+
+.cartIcon {
+    width: 40px; 
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
 
 
 h2 {
@@ -83,13 +78,15 @@ h2 {
 
 .cartInBlack {
     height: 50px;
-    margin-top: 110px;
+    margin-top: 100px;
     margin-right: 20px;
 }
+
 .secondHeaderDiv {
     margin-top: 100px;
-    font-size: 2.5em;
+    font-size: 2em;
 }
+
 .cartDiv {
     display: flex;
     border: 2px solid #3558b9;
@@ -113,7 +110,7 @@ h2 {
     display: flex;
     height: 40px;
     width: 40px;
-    margin-top: 12px;
+    margin-top: 9px;
     margin-right: 20px;
     cursor: pointer;
 }
@@ -129,11 +126,6 @@ h2 {
 
 }
 
-#number {
-    text: yellow; 
-    font-size: 200px;
-}
-
 img {
     width: auto;
     height: 200px;
@@ -145,10 +137,10 @@ img {
 
 
 .deldiv {
-    background-color: rgba(216, 90, 40, 0.884);
+    background-color: rgba(224, 91, 58, 0.884);
     width: 100px;
     height: 40px;
-    border-radius: 7px;
+    border-radius: 14px;
     color: #fff;
     justify-content: center;
     text-align: center;
@@ -172,14 +164,8 @@ img {
     cursor: pointer;
     font-size: 1.2em;
 }
-/* .paymentDiv {
-    display: flex;
-    flex-direction: column;
-    margin-top: 50px;
-    text-align: center;
-    justify-content: center;
-} 
-*/
+
+
 h3 {
     display: flex;
     flex-direction: column;
@@ -188,50 +174,35 @@ h3 {
     
 } 
 .priceDiv{
-    font-size: 1.5em;
+    display: flex;
+    font-size: 1.3em;
     font-weight: 600;
-    margin-top: 40px;
+    margin-top: 30px;
+    justify-content: center;
+    
 }
 
 #purchaseBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
     background-color: rgba(40, 117, 233, 0.938);
-    width: 300px;
-    height: 70px;
+    width: 240px;
+    height: 44px;
     border-radius: 7px;
     color: #fff;
-    font-size: 1.5em;
-    margin-top: 50px;
+    font-size: 1.2em;
+    margin-top: 30px;
 }
+
 .tickPic{
-    height: 1.5rem;
+    margin-right: 15px;
+    height: 1.2rem;
 
-  
-    
-    
 
 }
-/* .trashPicImage{
-    width: 1.5rem;
-    height: auto;
-    color:rgb(14, 11, 11);
-    margin-right: 30px;
-    margin-left:20px ;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-.removetext {
-    font-weight: 200;
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.1rem;
-    color: rgb(12, 11, 11);
-    margin-top: 10px;
-    padding-top: 2px;
-} */
 
-
-.checkBox {
-   
-    height: 20px;
-    width: 20px;
-    
-}
+@media only screen and (max-width: 400px) {
+    h2 {font-size: 20px;}
+  }

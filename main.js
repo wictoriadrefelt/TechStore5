@@ -33,8 +33,7 @@ let titleDiv = document.createElement('a')
     titleDiv.title = 'TechStore';
     titleDiv.href = 'index.html';
     head.appendChild(titleDiv)
-    //let counter = document.querySelector('#numberOfProductCount')
-    //head.append(counter)
+   
     let cartIcon = document.createElement('div')
     cartIcon.classList.add('cartIcon')
     let cartImage = document.createElement('img')
@@ -50,8 +49,6 @@ let titleDiv = document.createElement('a')
           }
     }
 }
-
-  
 
 /** Uses the loaded products data to create a visible product list on the website */
 
@@ -114,12 +111,7 @@ function addProductsToWebpage() {
         addToCartText.classList.add('text')
         addToCartText.innerText =`Lägg till i kundvagnen`
         paragraphThree.append(cartPic, addToCartText)
-        /* paragraphThree.innerText = cartImage  */
-        /*
-        paragraphThree.className = 'addItemToCartbtn';
-        paragraphThree.id = 'purchase'
-        */
-        // Allows the button to be clicked and ads product
+       
         update = displayCartAmount()
         
         paragraphThree.addEventListener('click', () => {addToCart(product), update
@@ -134,7 +126,7 @@ function addProductsToWebpage() {
 };
 
 
-// Add product to cart. 
+// Add product to cart and calls displayCartAmount. 
 function addToCart(product) {     
     let cart = localStorage.getItem("cart")
     if(cart) {
@@ -166,7 +158,7 @@ function addToCart(product) {
     }
 
 
-    // Display number of items in cart 
+    // Displays number of items in cart 
     function displayCartAmount() {
         let numberOfProductsCount = document.getElementById('numberOfProductsCount')
 

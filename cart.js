@@ -58,7 +58,6 @@ let cartIcon = document.createElement('div')
 }
 }
 
-
 function confirmPurchase() {
     
     alert('Purchase completed. Thank you for your order!');

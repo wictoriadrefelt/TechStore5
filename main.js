@@ -135,7 +135,6 @@ function addProductsToWebpage() {
 
 
 // Add product to cart. 
-// Located index of item (if exists) and 
 function addToCart(product) {     
     let cart = localStorage.getItem("cart")
     if(cart) {
@@ -167,7 +166,7 @@ function addToCart(product) {
     }
 
 
-
+    // Display number of items in cart 
     function displayCartAmount() {
         let numberOfProductsCount = document.getElementById('numberOfProductsCount')
 
@@ -180,9 +179,9 @@ function addToCart(product) {
             cart = []
         }
     
-        let totalSum = cart.reduce((sum,item) => sum + item.quantity, 0);
+        let totalSum = cart.reduce((sum, product) => sum + product.quantity, 0);
         
-        numberOfProductsCount.textContent = totalSum
+        numberOfProductsCount.innerText = totalSum
     
      }
 

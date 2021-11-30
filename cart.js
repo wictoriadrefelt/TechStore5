@@ -1,9 +1,5 @@
 var listOfProducts = [];
 
-
-
-
-
 function initSite() {
     loadProducts();
     ifEmpty();
@@ -72,9 +68,6 @@ function confirmPurchase() {
     
   }
 
-
-
-
 // Clears local storage
 function clearAllItems(){
     
@@ -82,9 +75,6 @@ function clearAllItems(){
 }
 
 let cart = JSON.parse(localStorage.getItem('cart'))
-
-
-
 
 
 function secondHeader (){
@@ -200,9 +190,6 @@ function paymentFooter (){
 
     }
 
-
-
-
 // Calculate total sum for cart. Returns total amount. 
 function totalPrice(){
     let amount = cart.reduce((sum,product) => sum + product.product.price * product.quantity, 0);
@@ -276,8 +263,6 @@ function updatePrice(price) {
        }
    } 
 }
-
-
 
 function deleted() {
     let cart = JSON.parse(localStorage.getItem("cart"));

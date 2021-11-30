@@ -3,7 +3,6 @@
     font-family: 'Roboto', sans-serif;
 }
 
-
 main {
     display: flex;
     flex-direction: row;
@@ -14,7 +13,6 @@ main {
     border: none;
     flex-wrap: wrap;
 }
-
 
 .header {
     background-color: black;
@@ -44,8 +42,6 @@ main {
    text-decoration: none;
    
 }
-
-
 
 .numberOfProductsCount {
     display: flex;
@@ -164,7 +160,6 @@ img {
     cursor: pointer;
     font-size: 1.2em;
 }
-
 
 h3 {
     display: flex;
